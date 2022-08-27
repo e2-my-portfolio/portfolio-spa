@@ -10,6 +10,7 @@ import { AppTabsModule } from './blocks/app-tabs.module';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireStorageModule, BUCKET } from '@angular/fire/compat/storage';
 import { environment } from 'src/environments/environment';
+import { RecaptchaV3Module, RECAPTCHA_V3_SITE_KEY } from 'ng-recaptcha';
 
 
 @NgModule({
@@ -26,10 +27,12 @@ import { environment } from 'src/environments/environment';
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireStorageModule,
-    AppTabsModule
+    AppTabsModule,
+    RecaptchaV3Module
   ],
   providers: [
-    { provide: BUCKET, useValue: `${environment.firebase.storageBucket}` }
+    { provide: BUCKET, useValue: `${environment.firebase.storageBucket}` },
+    { provide: RECAPTCHA_V3_SITE_KEY, useValue: environment.recaptcha.siteKey },
   ],
   bootstrap: [AppComponent]
 })
