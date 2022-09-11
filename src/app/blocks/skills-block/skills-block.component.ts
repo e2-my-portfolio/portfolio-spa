@@ -20,6 +20,7 @@ export class SkillsBlockComponent extends Unsubscribable() implements OnInit {
 
   ngOnInit(): void {
     this.firestore.getCollectionItems<SkillGroup>(Collection.SKILLS_TAB_DATA)
+                  // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
                   .pipe(takeUntil(this.unsubscribe))
                   .subscribe((groups: SkillGroup[]) => {
                     this.skills = groups.sort((a, b) => a.position < b.position ? -1 : 1);

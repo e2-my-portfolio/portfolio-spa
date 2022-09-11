@@ -20,6 +20,7 @@ export class ExperienceBlockComponent extends Unsubscribable() implements OnInit
 
   ngOnInit(): void {
     this.firestore.getCollectionItems<Workplace>(Collection.EXPERIENCE_TAB_DATA)
+                  // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
                   .pipe(takeUntil(this.unsubscribe))
                   .subscribe((workplaces: Workplace[]) => {
                     this.workplaces = workplaces;

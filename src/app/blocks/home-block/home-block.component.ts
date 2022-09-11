@@ -29,6 +29,7 @@ export class HomeBlockComponent extends Unsubscribable() implements OnInit {
 
   ngOnInit(): void {
     this.firestore.getCollectionItem<HomePageData>(Collection.HOME_TAB_DATA)
+                  // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
                   .pipe(takeUntil(this.unsubscribe))
                   .subscribe(data => this.setupData(data));
   }

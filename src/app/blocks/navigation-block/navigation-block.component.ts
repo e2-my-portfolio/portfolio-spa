@@ -24,6 +24,7 @@ export class NavigationBlockComponent extends Unsubscribable() implements OnInit
 
   ngOnInit(): void {
     this.firestore.getCollectionItem<Profile>(Collection.PROFILE)
+                  // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
                   .pipe(takeUntil(this.unsubscribe))
                   .subscribe(profile => {
       this.profile = profile;

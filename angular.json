@@ -31,7 +31,6 @@
               "src/styles/animations.scss",
               "src/styles/skeleton-loader.scss",
               "src/styles.scss",
-              "node_modules/@fortawesome/fontawesome-free/js/all.js",
               "node_modules/@fortawesome/fontawesome-free/css/all.css"
             ],
             "scripts": []
