@@ -12,6 +12,8 @@ describe('WorkplaceCollapsibleContentComponent', () => {
       declarations: [
         WorkplaceCollapsibleContentComponent
       ],
+      imports: [
+      ],
       providers: [
         { provide: FirestoreService, useValue: MockModule.firestoreService },
       ]

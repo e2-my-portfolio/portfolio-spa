@@ -10,6 +10,8 @@ describe('SocialLinksBarComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ SocialLinksBarComponent ],
+      imports: [
+      ],
       providers: [
         { provide: FirestoreService, useValue: MockModule.firestoreService },
       ]

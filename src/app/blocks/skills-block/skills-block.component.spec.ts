@@ -17,7 +17,7 @@ describe('SkillsBlockComponent', () => {
         SkillsBlockComponent
       ],
       imports: [
-        MockModule
+        MockModule,
       ],
       providers: [
         { provide: FirestoreService, useValue: MockModule.firestoreService },

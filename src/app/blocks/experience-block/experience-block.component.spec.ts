@@ -19,7 +19,7 @@ describe('ExperienceBlockComponent', () => {
         WorkplaceSortPipe
       ],
       imports: [
-        MockModule
+        MockModule,
       ],
       providers: [
         { provide: FirestoreService, useValue: MockModule.firestoreService },

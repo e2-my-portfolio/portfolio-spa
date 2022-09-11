@@ -13,7 +13,7 @@ describe('SkillsGroupContentComponent', () => {
         SkillsGroupContentComponent
       ],
       imports: [
-        MockModule
+        MockModule,
       ],
       providers: [
         { provide: FirestoreService, useValue: MockModule.firestoreService },

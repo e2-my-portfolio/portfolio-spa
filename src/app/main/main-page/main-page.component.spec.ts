@@ -15,7 +15,7 @@ describe('MainPageComponent', () => {
       ],
       imports: [
         RouterTestingModule,
-        MockModule
+        MockModule,
       ],
       providers: [
         { provide: FirestoreService, useValue: MockModule.firestoreService },

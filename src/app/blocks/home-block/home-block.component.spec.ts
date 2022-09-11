@@ -20,7 +20,7 @@ describe('HomeBlockComponent', () => {
       ],
       imports: [
         BrowserAnimationsModule,
-        MockModule
+        MockModule,
       ],
       providers: [
         { provide: FirestoreService, useValue: MockModule.firestoreService },
