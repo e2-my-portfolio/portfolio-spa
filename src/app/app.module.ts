@@ -12,6 +12,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { getStorage, provideStorage } 
+from '@angular/fire/storage';
+import {
+  getAnalytics,
+  provideAnalytics,
+  /*ScreenTrackingService,
+  UserTrackingService*/
+} from '@angular/fire/analytics';
 // import { RecaptchaV3Module, RECAPTCHA_V3_SITE_KEY } from 'ng-recaptcha';
 
 
@@ -32,11 +40,16 @@ import { getFirestore, provideFirestore } from '@angular/fire/firestore';
     AppTabsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
+    provideAnalytics(() => getAnalytics()),
+    provideStorage(() => getStorage())
  //   RecaptchaV3Module
   ],
   providers: [
     { provide: BUCKET, useValue: `${environment.firebase.storageBucket}` },
  //   { provide: RECAPTCHA_V3_SITE_KEY, useValue: environment.recaptcha.siteKey },
+ // analytics
+    /*ScreenTrackingService,
+    UserTrackingService*/
   ],
   bootstrap: [AppComponent]
 })

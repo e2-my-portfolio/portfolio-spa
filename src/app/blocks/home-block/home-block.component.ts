@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { takeUntil } from 'rxjs/operators';
 import { Collection } from 'src/app/constants/collections';
 import { Company } from 'src/app/models/data/company.model';
-import { FileData } from 'src/app/models/data/file-data.model';
 import { Unsubscribable } from 'src/app/operators/unsubscribtion.operator';
 import { FirestorageService } from 'src/app/services/firestorage.service';
 import { FirestoreService } from 'src/app/services/firestore.service';
@@ -35,10 +34,11 @@ export class HomeBlockComponent extends Unsubscribable() implements OnInit {
   }
 
   downloadCV(): void {
-    this.firestorage.getFileDownloadUrl('/cv').subscribe((fileData: FileData) => {
+    this.firestorage.getCvFileUrl().subscribe((url: string) => {
       const downloadLink = document.createElement('a');
-      downloadLink.download = fileData.name;
-      downloadLink.href = fileData.downloadUrl;
+      console.log(url);
+      downloadLink.download = `cv.pdf`;
+      downloadLink.href = url;
       downloadLink.target = '_blank';
       downloadLink.click();
       downloadLink.remove();

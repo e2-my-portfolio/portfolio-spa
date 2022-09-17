@@ -1,27 +1,26 @@
+/* eslint-disable @typescript-eslint/no-unsafe-return */
 import { Injectable } from '@angular/core';
+import { Firestore, collection, collectionData } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Collection } from '../constants/collections';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FirestoreService {
+  // https://dev.to/jdgamble555/angular-12-with-firebase-9-49a0
 
-  constructor(private firestore: AngularFirestore) { }
+  constructor(private firestore: Firestore) { }
 
-  getCollectionItem<T>(collection: string | Collection): Observable<T> {
-    return this.firestore
-      .collection<T>(collection.toString().toLowerCase())
-      .valueChanges()
+  getCollectionItem<T>(col: string | Collection): Observable<T> {
+    return collectionData(collection(this.firestore, col.toString().toLowerCase()))
       .pipe(map((items: T[]) => items.length > 0 ? items[0] : {} as T));
   }
 
-  getCollectionItems<T>(collection: string | Collection): Observable<T[]> {
-    return this.firestore
-      .collection<T>(collection.toString().toLowerCase())
-      .valueChanges();
+  getCollectionItems<T>(col: string | Collection): Observable<T[]> {
+    return collectionData(collection(this.firestore, col.toString().toLowerCase()))
+      .pipe(map((items: T[]) => items));
   }
 
 }

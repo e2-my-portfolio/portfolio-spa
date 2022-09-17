@@ -1,37 +1,42 @@
 import { Injectable } from "@angular/core";
-import { AngularFireStorage } from "@angular/fire/compat/storage";
-import { ListResult } from "@angular/fire/compat/storage/interfaces";
-import { Observable } from "rxjs";
-import { map, switchMap } from "rxjs/operators";
-import { FileData } from "../models/data/file-data.model";
+import { Storage, ref, getDownloadURL, listAll } from "@angular/fire/storage";
+import { Observable, from, map, switchMap } from "rxjs";
 
 @Injectable({
     providedIn: 'root'
 })
 export class FirestorageService {
 
-    constructor(private storage: AngularFireStorage) { }
+    private CV_PATH = '/cv';
+    private PROFILE_PIC_PATH = '/profile-pic/profile.png';
 
-    getAllInPath(path: string): Observable<ListResult> {
-        return this.storage.ref(path).listAll();
-    }
+    // https://www.bezkoder.com/angular-13-firebase-storage/
+    // https://dev.to/jdgamble555/angular-12-with-firebase-9-49a0
+    // https://firebase.google.com/docs/storage/web/download-files
 
-    getFileDownloadUrl(path: string): Observable<FileData> {
-        return this.storage.ref(path).listAll().pipe(
-            switchMap(list => {
-                const firstFileName = list.items[0].name.split('/')[0];
-                // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
-                return this.storage.ref(`${path}/${firstFileName}`).getDownloadURL().pipe(
-                    map(url => {
-                        return { name: firstFileName, downloadUrl: url as string } as FileData;
-                    })
-                ) as Observable<FileData>;
-            })
-        );
+    constructor(private storage: Storage) { }
+
+    getCvFileUrl(): Observable<string> {
+        return this.getAllDownloadUrls(this.CV_PATH)
+            .pipe(switchMap((urls: string[]) => this.getFileDownloadUrl(urls[0])))
     }
 
     getProfilePictureUrl(): Observable<unknown> {
-        return this.storage.ref('/profile-pic/profile.png').getDownloadURL();
+        return this.getFileDownloadUrl(this.PROFILE_PIC_PATH);
     }
+
+    private getFileDownloadUrl(path: string): Observable<string> {
+        return from(getDownloadURL(ref(this.storage, path)));
+    }
+
+    private getAllDownloadUrls(path: string): Observable<string[]> {
+        return from(listAll(ref(this.storage, path))).pipe(map(resultList => {
+            return resultList.items.map((ref) => {
+                return ref.fullPath;
+            })
+        }));
+    }
+
+   
 
 }
