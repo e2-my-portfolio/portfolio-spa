@@ -1,48 +1,22 @@
-const { pathsToModuleNameMapper } = require('ts-jest');
-const { compilerOptions } = require('./tsconfig');
-
 module.exports = {
-  preset: 'jest-preset-angular',
-  globals: {
-    'ts-jest': {
-      tsconfig: '<rootDir>/tsconfig.spec.json',
-      stringifyContentPathRegex: '\\.html$',
-      astTransformers: {
-        before: [
-          'jest-preset-angular/build/InlineFilesTransformer',
-          'jest-preset-angular/build/StripStylesTransformer',
-        ],
-      },
+    preset: 'jest-preset-angular',
+    setupFilesAfterEnv: ['<rootDir>/setup-jest.ts'],
+    globalSetup: 'jest-preset-angular/global-setup',
+    moduleDirectories: ['node_modules', '<rootDir>/src'],
+    transformIgnorePatterns: ['node_modules/(?!(@angular|rxjs))'],
+    testPathIgnorePatterns: ['/node_modules/', '/dist/', '/app/test/'],
+    collectCoverage: true,
+    coverageDirectory: '<rootDir>/coverage/',
+    roots: ['<rootDir>'],
+    setupFilesAfterEnv: ['<rootDir>/src/test.ts'],
+    testFailureExitCode: 0,
+    testMatch: ['**/?(*.)+(spec).(ts)'],
+    resolver: './jest.resolver.js',
+    moduleNameMapper: {
+        "~src/(.*)": "<rootDir>/src/$1"
     },
-  },
-  roots: ['<rootDir>/src/app'],
-  testFailureExitCode: 0,
-  testMatch: ['**/?(*.)+(spec).(ts)'],
-  testPathIgnorePatterns: ['/node_modules/', '/dist/', '/app/test/'],
-  setupFilesAfterEnv: ['<rootDir>/src/test.ts'],
-  moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths || {}, {
-    prefix: '<rootDir>/'
-  }),
-  snapshotSerializers: [
-    'jest-preset-angular/build/serializers/ng-snapshot',
-    'jest-preset-angular/build/serializers/html-comment',
-  ],
-  reporters: [
-    'default',
-    [
-      'jest-sonar',
-      {
-        outputDirectory: 'coverage',
-      },
+    cacheDirectory: "/temp/jest_rs",
+    modulePaths: [
+        "<rootDir>"
     ],
-  ],
-  resolver: '<rootDir>/jest.resolver.js',
-  transform: {
-    "^.+\\.(ts|js|html)$": "ts-jest"
-  },
-  modulePaths: [
-    '<rootDir>'
-  ],
-  coverageReporters: ['lcov', 'text', 'text-summary'],
-  coveragePathIgnorePatterns: ['/node_modules/', '/dist/', '/app/test/']
 };

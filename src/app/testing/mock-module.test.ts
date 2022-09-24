@@ -1,4 +1,5 @@
 import { Component, Injectable, Input, NgModule } from '@angular/core';
+import { Firestore } from '@angular/fire/firestore';
 import { Observable, of } from 'rxjs';
 import { Collection } from '../constants/collections';
 
@@ -62,12 +63,28 @@ class NavigationButtonsComponent { }
 
 @Injectable({providedIn: 'root'})
 class FirestoreService {
+
+    constructor(firestore: Firestore) {}
+
     getCollectionItem<T>(collection: string | Collection): Observable<any> {
         return of('');
     }
 
     getCollectionItems<T>(collection: string | Collection): Observable<any[]> {
         return of([]);
+    }
+}
+
+@Injectable({providedIn: 'root'})
+class FirestorageService {
+    constructor(storage: Storage) {}
+
+    getCvFileUrl(): Observable<string> {
+        return of('');
+    }
+
+    getProfilePictureUrl(): Observable<unknown> {
+        return of();
     }
 }
 
@@ -92,7 +109,8 @@ class FirestoreService {
     imports: [
     ],
     providers: [
-        FirestoreService
+        FirestoreService,
+        FirestorageService
     ],
     exports: [
         AboutTextContainerComponent,
@@ -113,7 +131,8 @@ class FirestoreService {
     bootstrap: []
   })
 export class MockModule {
-    static firestoreService: FirestoreService = new FirestoreService();
+    static firestoreService: FirestoreService = new FirestoreService({} as Firestore);
+    static firestorageService: FirestorageService = new FirestorageService({} as Storage);
 
     static routes = [
         { path: 'home', component: HomeBlockComponent },

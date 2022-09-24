@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { FirestoreService } from 'src/app/services/firestore.service';
 import { Mock } from 'src/app/testing/mock-data.test';
 import { MockModule } from 'src/app/testing/mock-module.test';
@@ -15,7 +15,7 @@ describe('WorkplaceCollapsibleComponent', () => {
         WorkplaceCollapsibleComponent
       ],
       imports: [
-        BrowserAnimationsModule,
+        NoopAnimationsModule,
         MockModule,
       ],
       providers: [
