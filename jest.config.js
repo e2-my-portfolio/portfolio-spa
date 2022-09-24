@@ -15,7 +15,6 @@ module.exports = {
     moduleNameMapper: {
         "~src/(.*)": "<rootDir>/src/$1"
     },
-    cacheDirectory: "/temp/jest_rs",
     modulePaths: [
         "<rootDir>"
     ],
