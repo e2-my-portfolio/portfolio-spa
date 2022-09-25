@@ -20,7 +20,6 @@ import {
   /*ScreenTrackingService,
   UserTrackingService*/
 } from '@angular/fire/analytics';
-// import { RecaptchaV3Module, RECAPTCHA_V3_SITE_KEY } from 'ng-recaptcha';
 
 
 @NgModule({
@@ -41,12 +40,13 @@ import {
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
     provideAnalytics(() => getAnalytics()),
-    provideStorage(() => getStorage())
- //   RecaptchaV3Module
+    provideStorage(() => getStorage()),
   ],
   providers: [
-    { provide: BUCKET, useValue: `${environment.firebase.storageBucket}` },
- //   { provide: RECAPTCHA_V3_SITE_KEY, useValue: environment.recaptcha.siteKey },
+    {
+      provide: BUCKET,
+      useValue: `${environment.firebase.storageBucket}`
+    },
  // analytics
     /*ScreenTrackingService,
     UserTrackingService*/

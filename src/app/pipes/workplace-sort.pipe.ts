@@ -9,7 +9,9 @@ export class WorkplaceSortPipe implements PipeTransform {
   private PRESENT = 'Present';
 
   transform(workplaces: Workplace[]): Workplace[] {
-    return this.sort(workplaces);
+    return (workplaces && workplaces.length > 0) ?
+          this.sort(workplaces) :
+          [];
   }
 
   private sort(workplaces: Workplace[]): Workplace[] {

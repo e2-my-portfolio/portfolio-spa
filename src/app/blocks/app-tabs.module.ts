@@ -23,6 +23,8 @@ import { TakeEveryPipe } from '../pipes/take-every.pipe';
 import { AboutTextContainerComponent } from './about-block/components/about-text-container/about-text-container.component';
 import { WorkplaceSortPipe } from '../pipes/workplace-sort.pipe';
 import { MultilinePipe } from '../pipes/multiline.pipe';
+import { RecaptchaFormsModule, RecaptchaSettings, RecaptchaV3Module, RECAPTCHA_BASE_URL, RECAPTCHA_LANGUAGE, RECAPTCHA_SETTINGS, RECAPTCHA_V3_SITE_KEY } from 'ng-recaptcha';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -52,7 +54,8 @@ import { MultilinePipe } from '../pipes/multiline.pipe';
     BrowserAnimationsModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    RecaptchaV3Module
   ],
   exports: [
     SkillsGroupComponent,
@@ -70,7 +73,30 @@ import { MultilinePipe } from '../pipes/multiline.pipe';
     CurvesAnimationComponent,
     NavigationBlockComponent,
     ProgressAnimationComponent,
-    WorkplaceSortPipe
+    WorkplaceSortPipe,
+    RecaptchaV3Module,
+    RecaptchaFormsModule
+  ],
+  providers: [
+    {
+      provide: RECAPTCHA_V3_SITE_KEY,
+      useValue: environment.recaptcha.siteKey
+    },
+    {
+      provide: RECAPTCHA_BASE_URL,
+      useValue: 'https://recaptcha.net/recaptcha/api.js'
+    },
+    {
+      provide: RECAPTCHA_LANGUAGE,
+      useValue: 'en-US'
+    },
+    {
+      provide: RECAPTCHA_SETTINGS,
+      useValue: { siteKey: `${environment.recaptcha.siteKey}` } as RecaptchaSettings,
+    },
+  ],
+  bootstrap: [
+    ContactFormComponent
   ]
 })
 export class AppTabsModule { }
