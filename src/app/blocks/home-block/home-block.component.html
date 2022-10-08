@@ -1,14 +1,8 @@
-<div class="w-100 d-flex flex-column h-100">
-    <div class="text-block">
-        <div *ngIf="loading" class="spinner-grow" role="status">
-            <span class="sr-only">Loading...</span>
-        </div>
-        <div *ngIf="loading" class="spinner-grow" role="status">
-            <span class="sr-only">Loading...</span>
-        </div>
-        <div *ngIf="loading" class="spinner-grow" role="status">
-            <span class="sr-only">Loading...</span>
-        </div>
+<div class="w-100 d-flex flex-column" [ngClass]="{'h-100': !deviceDetector.isMobile()}">
+    <div class="text-block" [ngClass]="deviceDetector.isMobile() ? 'text-block-mobile' : 'text-block'">
+
+        <app-loader *ngIf="loading"></app-loader>
+        
         <div *ngIf="!loading">
             <div class="title-line">
                 <span>{{title}}</span><span id="name"><b>{{name}}</b></span>
@@ -25,9 +19,10 @@
             </div>
         </div>
     </div>
-    <div class="mt-auto d-flex justify-content-around navigation-buttons">
+    <div *ngIf="!deviceDetector.isMobile()" class="mt-auto d-flex justify-content-around navigation-buttons">
         <button class="glass" [routerLink]="['/about']">About me</button>
         <button class="glass" [routerLink]="['/skills']">My skills</button>
         <button class="glass" (click)="downloadCV()">Download CV</button>
     </div>
+
 </div>

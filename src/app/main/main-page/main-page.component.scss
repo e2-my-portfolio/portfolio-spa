@@ -1,9 +1,13 @@
 .main-container {
-    margin: 3rem 12rem;
-    height: 85%;
+  margin: 3rem 12rem;
+  height: 85%;
 }
 
 .router-wrapper {
-    margin-left: 3rem;
-    overflow-y: scroll;
+  margin-left: 3rem;
+  overflow-y: scroll;
+}
+
+.mobile-container{
+  overflow-y: scroll;
 }

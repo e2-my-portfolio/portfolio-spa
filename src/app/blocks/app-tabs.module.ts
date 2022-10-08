@@ -25,6 +25,9 @@ import { WorkplaceSortPipe } from '../pipes/workplace-sort.pipe';
 import { MultilinePipe } from '../pipes/multiline.pipe';
 import { RecaptchaFormsModule, RecaptchaSettings, RecaptchaV3Module, RECAPTCHA_BASE_URL, RECAPTCHA_LANGUAGE, RECAPTCHA_SETTINGS, RECAPTCHA_V3_SITE_KEY } from 'ng-recaptcha';
 import { environment } from 'src/environments/environment';
+import { MobileBlockComponent } from './mobile-block/mobile-block.component';
+import { LoaderComponent } from './components/loader/loader.component';
+import { ProfilePictureComponent } from './components/profile-picture/profile-picture.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +49,10 @@ import { environment } from 'src/environments/environment';
     TakeEveryPipe,
     AboutTextContainerComponent,
     WorkplaceSortPipe,
-    MultilinePipe
+    MultilinePipe,
+    MobileBlockComponent,
+    LoaderComponent,
+    ProfilePictureComponent
   ],
   imports: [
     CommonModule,
@@ -75,7 +81,8 @@ import { environment } from 'src/environments/environment';
     ProgressAnimationComponent,
     WorkplaceSortPipe,
     RecaptchaV3Module,
-    RecaptchaFormsModule
+    RecaptchaFormsModule,
+    MobileBlockComponent
   ],
   providers: [
     {

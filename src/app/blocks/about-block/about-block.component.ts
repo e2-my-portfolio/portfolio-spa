@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DeviceDetectorService } from 'ngx-device-detector';
 import { AboutDescription } from 'src/app/models/data/about.model';
 
 @Component({
@@ -9,9 +10,12 @@ import { AboutDescription } from 'src/app/models/data/about.model';
 export class AboutBlockComponent implements OnInit {
 
   dataList: AboutDescription[] = [];
+  isMobile = false;
+
+  constructor(private deviceDetector: DeviceDetectorService) { }
 
   ngOnInit(): void {
-
+    this.isMobile = this.deviceDetector.isMobile();
     this.dataList = [
       { title: 'Leisure', content: 'During free time I do lot of stuff. Sussex result matter any end see. It speedily me addition weddings vicinity in pleasure. Happiness commanded an conveying breakfast in.' },
       { title: 'Some First', content: 'Meant balls it if up doubt small purse. Required his you put the outlived answered position. An pleasure exertion if believed provided to. All led out world these music while asked. Paid mind even sons does he door no. Attended overcame repeated it is perceive marianne in. In am think on style child of. Servants moreover in sensible he it ye possible.' },

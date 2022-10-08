@@ -1,12 +1,23 @@
-<div class="block-container">
-    <div class="col-6">
-        <ng-container *ngFor="let data of dataList|takeEvery:2; let i = index;">
-            <app-about-text-container [data]="data" [animationDelay]="i*300"></app-about-text-container>
-        </ng-container>
+<div>
+    <div *ngIf="!isMobile" class="block-container">
+        <div class="col-6">
+            <ng-container *ngFor="let data of dataList|takeEvery:2; let i = index;">
+                <app-about-text-container [data]="data" [animationDelay]="i*300"></app-about-text-container>
+            </ng-container>
+        </div>
+        <div class="col-6">
+            <ng-container *ngFor="let data of dataList|takeEvery:2:false; let i = index;">
+                <app-about-text-container [data]="data" [animationDelay]="i*300"></app-about-text-container>
+            </ng-container>
+        </div>
     </div>
-    <div class="col-6">
-        <ng-container *ngFor="let data of dataList|takeEvery:2:false; let i = index;">
-            <app-about-text-container [data]="data" [animationDelay]="i*300"></app-about-text-container>
-        </ng-container>
+
+    <div *ngIf="isMobile" class="block-container">
+        <div class="col-12">
+            <ng-container *ngFor="let data of dataList">
+                <app-about-text-container [data]="data"></app-about-text-container>
+            </ng-container>
+        </div>
     </div>
 </div>
+

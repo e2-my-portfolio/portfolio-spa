@@ -150,5 +150,6 @@
     }
   },
   "cli": {
+    "analytics": false
   }
 }

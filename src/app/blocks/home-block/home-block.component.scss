@@ -1,5 +1,9 @@
 .text-block {
-    margin: 6rem 3rem 5rem 3rem;
+    margin: 5rem 3rem 5rem 3rem;
+}
+
+.text-block-mobile {
+    margin: 3rem;
 }
 
 .title-line {
@@ -20,12 +24,6 @@ a {
 
 a:hover {
     text-decoration: underline;
-}
-
-.spinner-grow {
-    margin: .2rem;
-    max-width: .25rem;
-    max-height: .25rem;
 }
 
 .navigation-buttons {

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DeviceDetectorService } from 'ngx-device-detector';
 import { takeUntil } from 'rxjs/operators';
 import { Collection } from 'src/app/constants/collections';
 import { Company } from 'src/app/models/data/company.model';
@@ -13,7 +14,7 @@ import { HomePageData } from './models/home-page.data';
   styleUrls: ['./home-block.component.scss']
 })
 export class HomeBlockComponent extends Unsubscribable() implements OnInit {
-//https://github.com/scttcper/ng2-adsense
+
   title: string;
   name: string;
   info: string;
@@ -21,7 +22,8 @@ export class HomeBlockComponent extends Unsubscribable() implements OnInit {
   description: string;
   loading = true;
 
-  constructor(private firestore: FirestoreService,
+  constructor(public deviceDetector: DeviceDetectorService,
+              private firestore: FirestoreService,
               private firestorage: FirestorageService) {
     super();
   }
