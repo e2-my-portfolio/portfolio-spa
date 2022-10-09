@@ -1,0 +1,14 @@
+<div class="skills-group-content">
+    <div class="skills-mobile-container">
+        <ul>
+            <li *ngFor="let skill of skills">
+                <div class="item-row">
+                    <div>{{skill.name}}</div>
+                    <div class="rate-container">
+                        <app-progress-animation [progress]="skill.level"></app-progress-animation>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

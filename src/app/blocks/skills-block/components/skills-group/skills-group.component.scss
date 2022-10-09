@@ -1,3 +1,24 @@
 .group-title {
     margin: 1rem 1.2rem;
 }
+
+.collapsible {
+    cursor: pointer;
+    padding: 18px;
+}
+
+.collapsible-title-container {
+    display: flex;
+    align-items: stretch;
+    flex-wrap: nowrap;
+}
+
+.collapsible-arrow,
+.collapsible-title {
+    display: flex;
+    align-self: center;
+}
+
+.collapsible-title {
+    margin-left: 1rem;
+}

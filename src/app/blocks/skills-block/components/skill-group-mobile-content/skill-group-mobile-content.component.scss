@@ -1,0 +1,29 @@
+.skills-group-content {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 1rem 1rem 1rem;
+}
+
+.skills-mobile-container {
+    flex: 0 0 auto;
+    width: 100%;
+    ul > li {
+        margin-right: 1rem;
+        div.item-row {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+            width: 100%;
+        }
+    }
+}
+
+.rate-container {
+    margin: .7rem 2rem 0 0;
+    width: 100%;
+}
+
+.chart-container {
+    flex: 0 0 auto;
+    width: 100%;
+}

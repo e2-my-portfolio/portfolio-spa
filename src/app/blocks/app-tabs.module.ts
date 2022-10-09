@@ -28,6 +28,8 @@ import { environment } from 'src/environments/environment';
 import { MobileBlockComponent } from './mobile-block/mobile-block.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import { ProfilePictureComponent } from './components/profile-picture/profile-picture.component';
+import { HLineComponent } from './components/h-line/h-line.component';
+import { SkillGroupMobileContentComponent } from './skills-block/components/skill-group-mobile-content/skill-group-mobile-content.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +54,9 @@ import { ProfilePictureComponent } from './components/profile-picture/profile-pi
     MultilinePipe,
     MobileBlockComponent,
     LoaderComponent,
-    ProfilePictureComponent
+    ProfilePictureComponent,
+    HLineComponent,
+    SkillGroupMobileContentComponent
   ],
   imports: [
     CommonModule,
@@ -82,7 +86,7 @@ import { ProfilePictureComponent } from './components/profile-picture/profile-pi
     WorkplaceSortPipe,
     RecaptchaV3Module,
     RecaptchaFormsModule,
-    MobileBlockComponent
+    MobileBlockComponent,
   ],
   providers: [
     {

@@ -1,4 +1,18 @@
-<div class="glass my-3">
+<div *ngIf="!isMobile" class="glass my-3">
     <h5 class="group-title">{{skillGroup.name}}</h5>
     <app-skills-group-content [skills]="skillGroup.skills"></app-skills-group-content>
 </div>
+
+<div *ngIf="isMobile" class="glass my-3">
+    <div class="collapsible w-100 unselectable"
+        (click)="toggle()">
+        <div class="collapsible-title-container">
+            <div *ngIf="visible" class="collapsible-arrow"><i class="fas fa-angle-up"></i></div>
+            <div *ngIf="!visible" class="collapsible-arrow"><i class="fas fa-angle-down"></i></div>
+            <div class="collapsible-title">{{skillGroup.name}}</div>
+        </div>
+    </div>
+    <app-skill-group-mobile-content *ngIf="visible" [skills]="skillGroup.skills"></app-skill-group-mobile-content>
+</div>
+
+

@@ -20,16 +20,12 @@ import {
   /*ScreenTrackingService,
   UserTrackingService*/
 } from '@angular/fire/analytics';
-import { IsMobileDirective } from './directives/is-mobile.directive';
-import { IsComputerDirective } from './directives/is-computer.directive';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainPageComponent,
-    IsMobileDirective,
-    IsComputerDirective
+    MainPageComponent
   ],
   imports: [
     BrowserModule,
