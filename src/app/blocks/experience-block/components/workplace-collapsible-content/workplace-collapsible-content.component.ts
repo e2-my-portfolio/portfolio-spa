@@ -1,5 +1,6 @@
 import { Input } from '@angular/core';
 import { Component } from '@angular/core';
+import { DeviceDetectorService } from 'ngx-device-detector';
 import { WorkingPosition } from 'src/app/models/data/workplace.model';
 
 @Component({
@@ -13,5 +14,7 @@ import { WorkingPosition } from 'src/app/models/data/workplace.model';
 export class WorkplaceCollapsibleContentComponent {
 
   @Input() positions: WorkingPosition[];
+
+  constructor(public deviceDetector: DeviceDetectorService) { }
 
 }

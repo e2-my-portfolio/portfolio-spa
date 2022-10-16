@@ -6,9 +6,24 @@
 .date-interval {
     color: grey;
     font-size: smaller;
+    display: flex;
+    flex-wrap: nowrap;
 }
 
 .company-name {
     font-size: 1.5rem;
     font-weight: 500;
+}
+
+.company-name-mobile {
+    font-size: medium;
+    font-weight: 500;
+}
+
+.date-interval-mobile {
+    color: grey;
+    font-size: x-small;
+    display: flex;
+    flex-wrap: nowrap;
+    min-width: fit-content;
 }

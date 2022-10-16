@@ -5,9 +5,9 @@
             <div>
                 <span *ngIf="visible"><i class="fas fa-angle-up"></i></span>
                 <span *ngIf="!visible"><i class="fas fa-angle-down"></i></span>
-                &nbsp;<span class="company-name">{{workplace.companyName}}</span>
+                &nbsp;<span [ngClass]="deviceDetector.isMobile() ? 'company-name-mobile' : 'company-name'">{{workplace.companyName}}</span>
             </div>
-            <div class="date-interval">{{workplace.startDate}} - {{workplace.endDate}}</div>
+            <div [ngClass]="deviceDetector.isMobile() ? 'date-interval-mobile' : 'date-interval'" class="date-interval">{{workplace.startDate}} - {{workplace.endDate}}</div> 
         </div>
     </div>
     <app-workplace-collapsible-content *ngIf="visible" [positions]="workplace.positions"></app-workplace-collapsible-content>

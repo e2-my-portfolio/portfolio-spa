@@ -1,15 +1,39 @@
 <div class="collapsible-content">
-    <ng-container *ngFor="let position of positions">
-        <div class="neu text-display p-3 mb-3">
-            <div class="position-title-container">
-                <div class="position-title">{{position.name}}</div>
-                <div class="position-date">{{position.startDate}} - {{position.endDate}}</div>
+    <div *ngIf="!deviceDetector.isMobile()">
+        <ng-container *ngFor="let position of positions">
+            <div class="neu text-display p-3 mb-3">
+                <div class="position-title-container">
+                    <div class="position-title">{{position.name}}</div>
+                    <div class="position-date">{{position.startDate}} - {{position.endDate}}</div>
+                </div>
+                <div *ngIf="position?.projects?.length > 0 && position?.projects[0] != ''">
+                    <div><strong>Projects: </strong></div>
+                    <ul>
+                        <li *ngFor="let project of position.projects">{{project}}</li>
+                    </ul>
+                </div>
+                <div><strong>Stack: </strong>{{position.stack}}</div>
             </div>
-            <div><b>Projects: </b></div>
-            <ul>
-                <li *ngFor="let project of position.projects">{{project}}</li>
-            </ul>
-            <div><b>Stack: </b>{{position.stack}}</div>
-        </div>
-    </ng-container>
+        </ng-container>
+    </div>
+
+    <div *ngIf="deviceDetector.isMobile()">
+        <ng-container *ngFor="let position of positions">
+            <div class="neu text-display p-3 mb-3">
+                <div class="position-title-container-mobile">
+                    <div class="position-title">{{position.name}}</div>
+                    <div class="position-date">{{position.startDate}} - {{position.endDate}}</div>
+                </div>
+                <div class="project-container-mobile">
+                    <div *ngIf="position?.projects?.length > 0 && position?.projects[0] != ''">
+                        <strong>Projects:</strong>
+                        <div class="project-content-mobile" *ngFor="let project of position.projects">{{project}}</div>
+                    </div>
+                    <div><strong>Stack:</strong>
+                        <div class="project-content-mobile">{{position.stack}}</div>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+    </div>
 </div>
