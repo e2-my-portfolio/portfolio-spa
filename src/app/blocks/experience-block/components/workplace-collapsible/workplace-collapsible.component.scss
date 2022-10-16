@@ -8,22 +8,16 @@
     font-size: smaller;
     display: flex;
     flex-wrap: nowrap;
+    &-mobile {
+        font-size: x-small;
+        min-width: fit-content;
+    }
 }
 
 .company-name {
     font-size: 1.5rem;
     font-weight: 500;
-}
-
-.company-name-mobile {
-    font-size: medium;
-    font-weight: 500;
-}
-
-.date-interval-mobile {
-    color: grey;
-    font-size: x-small;
-    display: flex;
-    flex-wrap: nowrap;
-    min-width: fit-content;
+    &-mobile {
+        font-size: medium;
+    }
 }
