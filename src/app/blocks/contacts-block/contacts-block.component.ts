@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
   selector: 'app-contacts-block',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./contacts-block.component.scss']
 })
 export class ContactsBlockComponent {
+
+  constructor(public deviceDetector: DeviceDetectorService) { }
 
 }

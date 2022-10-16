@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ReCaptchaV3Service } from 'ng-recaptcha';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
   selector: 'app-contact-form',
@@ -14,7 +15,10 @@ export class ContactFormComponent implements OnInit {
 
   contactForm: FormGroup = new FormGroup({});
 
-  constructor(private recaptchaV3Service: ReCaptchaV3Service) {}
+  constructor(
+    public deviceDetector: DeviceDetectorService,
+    private recaptchaV3Service: ReCaptchaV3Service
+  ) {}
 
   ngOnInit(): void {
     void this.contactForm.addControl('name', new FormControl('', Validators.required));

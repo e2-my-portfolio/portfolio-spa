@@ -1,5 +1,5 @@
 <div class="w-100">
-    <div class="text-block">
+    <div [ngClass]="deviceDetector.isMobile() ? 'description-block-mobile' : 'description-block'">
         <h1>I'd love to hear from you</h1>
         <div class="my-5 h5">
             Let me know what's your thoughts about me.<br>

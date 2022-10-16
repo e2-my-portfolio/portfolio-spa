@@ -1,7 +1,7 @@
 <form [formGroup]="contactForm" (ngSubmit)="sendMessage()">
-    <div class="form-container mx-3 p-3">
-        <div class="row">
-            <label for="name" class="col-xl-6 col-lg-12">
+    <div [ngClass]="deviceDetector.isMobile() ? 'w-100 mb-5' : 'form-container mx-3 p-3'">
+        <div [ngClass]="deviceDetector.isMobile() ? 'form-row-mobile' : 'form-row'">
+            <label for="name">
                 <input id="name"
                     type="name"
                     class="neu"
@@ -10,7 +10,7 @@
                     [ngClass]="{'neu-error' : contactForm.controls.name.invalid && contactForm.controls.name.touched}"
                     required>
             </label>
-            <label for="email" class="col-xl-6 col-lg-12">
+            <label for="email">
                 <input id="email"
                     type="email"
                     class="neu"
@@ -20,8 +20,8 @@
                     required>
             </label>
         </div>
-        <div class="row">
-            <label for="message" class="col-12">
+        <div [ngClass]="deviceDetector.isMobile() ? 'form-row-mobile' : 'form-row'">
+            <label for="message">
                 <textarea id="message"
                     type="text"
                     class="neu mr-2 mb-3"
@@ -33,7 +33,7 @@
             </label>
         </div>
 
-        <div class="d-flex flex-row-reverse mr-1">
+        <div [ngClass]="deviceDetector.isMobile() ? 'd-flex justify-content-center' : 'd-flex flex-row-reverse mr-1'">
             <button [disabled]="contactForm.invalid" class="neu primary" type="submit" (click)="executeRecaptchaV3()">Send</button>
         </div>
     </div>

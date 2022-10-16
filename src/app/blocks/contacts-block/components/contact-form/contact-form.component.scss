@@ -1,3 +1,23 @@
 textarea {
     resize: none;
 }
+
+.form-row {
+    display: flex;
+    >label[for="name"] {
+        margin-right: .5rem;
+        width: 50%;
+    }
+    >label[for="email"] {
+        margin-left: .5rem;
+        width: 50%;
+    }
+    >label[for="message"] {
+        width: 100%;
+    }
+    &-mobile{
+        >label {
+            width: 100%;
+        }
+    }
+}
