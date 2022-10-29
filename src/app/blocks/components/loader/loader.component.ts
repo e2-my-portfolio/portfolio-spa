@@ -10,11 +10,9 @@ export class LoaderComponent implements OnChanges {
 
   @Input() isLoading = true;
 
-  constructor() { }
-
   ngOnChanges(changes: SimpleChanges): void {
     if (this.isNewChange(changes)) {
-      this.isLoading = changes.isLoading.currentValue
+      this.isLoading = changes.isLoading.currentValue as boolean;
     }
   }
 

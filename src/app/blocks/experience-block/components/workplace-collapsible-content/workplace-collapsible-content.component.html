@@ -6,7 +6,7 @@
                     <div class="position-title">{{position.name}}</div>
                     <div class="position-date">{{position.startDate}} - {{position.endDate}}</div>
                 </div>
-                <div *ngIf="position?.projects?.length > 0 && position?.projects[0] != ''">
+                <div *ngIf="position?.projects?.length > 0 && position?.projects[0] !== ''">
                     <div><strong>Projects: </strong></div>
                     <ul>
                         <li *ngFor="let project of position.projects">{{project}}</li>
@@ -25,7 +25,7 @@
                     <div class="position-date">{{position.startDate}} - {{position.endDate}}</div>
                 </div>
                 <div class="project-container-mobile">
-                    <div *ngIf="position?.projects?.length > 0 && position?.projects[0] != ''">
+                    <div *ngIf="position?.projects?.length > 0 && position?.projects[0] !== ''">
                         <strong>Projects:</strong>
                         <div class="project-content-mobile" *ngFor="let project of position.projects">{{project}}</div>
                     </div>

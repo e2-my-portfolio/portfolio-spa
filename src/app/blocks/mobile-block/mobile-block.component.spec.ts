@@ -8,8 +8,6 @@ import { MobileBlockComponent } from './mobile-block.component';
 describe('MobileBlockComponent', () => {
   let component: MobileBlockComponent;
   let fixture: ComponentFixture<MobileBlockComponent>;
-  let firestoreService: FirestoreService;
-  let firestoreSpy: jest.SpyInstance;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
