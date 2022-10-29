@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { DeviceDetectorService } from 'ngx-device-detector';
+import { DeviceDetectorService } from 'src/app/services/device-detector.service';
 import { SkillGroup } from '../../models/skills.data';
 
 @Component({

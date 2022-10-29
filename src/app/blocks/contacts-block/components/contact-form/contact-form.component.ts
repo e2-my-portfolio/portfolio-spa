@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ReCaptchaV3Service } from 'ng-recaptcha';
-import { DeviceDetectorService } from 'ngx-device-detector';
+import { DeviceDetectorService } from 'src/app/services/device-detector.service';
 
 @Component({
   selector: 'app-contact-form',

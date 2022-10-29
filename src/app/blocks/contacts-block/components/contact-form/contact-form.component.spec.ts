@@ -1,5 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReCaptchaV3Service } from 'ng-recaptcha';
+import { DeviceDetectorService } from 'src/app/services/device-detector.service';
+import { MockModule } from 'src/app/testing/mock-module.test';
 import { ContactFormComponent } from './contact-form.component';
 
 describe('ContactFormComponent', () => {
@@ -13,10 +16,13 @@ describe('ContactFormComponent', () => {
       ],
       imports: [
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        MockModule
       ],
       providers: [
-        FormBuilder
+        FormBuilder,
+        { provide: ReCaptchaV3Service, useValue: MockModule.recaptcha },
+        { provide: DeviceDetectorService, useValue: MockModule.deviceDetector }
       ]
     })
     .compileComponents();

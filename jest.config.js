@@ -3,7 +3,7 @@ module.exports = {
     setupFilesAfterEnv: ['<rootDir>/setup-jest.ts'],
     globalSetup: 'jest-preset-angular/global-setup',
     moduleDirectories: ['node_modules', '<rootDir>/src'],
-    transformIgnorePatterns: ['node_modules/(?!(@angular|rxjs))'],
+    transformIgnorePatterns: ['node_modules/(?!(@angular|rxjs|ng-recaptcha))'],
     testPathIgnorePatterns: ['/node_modules/', '/dist/', '/app/test/'],
     collectCoverage: true,
     coverageDirectory: '<rootDir>/coverage/',

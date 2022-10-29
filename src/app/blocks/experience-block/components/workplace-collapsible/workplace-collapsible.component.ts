@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { DeviceDetectorService } from 'ngx-device-detector';
+import { DeviceDetectorService } from 'src/app/services/device-detector.service';
 import { FadeInAnimation } from 'src/app/animations/custom-animations';
 import { Workplace } from 'src/app/models/data/workplace.model';
 

@@ -1,6 +1,6 @@
 import { Input } from '@angular/core';
 import { Component } from '@angular/core';
-import { DeviceDetectorService } from 'ngx-device-detector';
+import { DeviceDetectorService } from 'src/app/services/device-detector.service';
 import { WorkingPosition } from 'src/app/models/data/workplace.model';
 
 @Component({

@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DeviceDetectorService } from 'src/app/services/device-detector.service';
 import { of } from 'rxjs';
 import { Collection } from 'src/app/constants/collections';
 import { FirestorageService } from 'src/app/services/firestorage.service';
@@ -26,7 +27,8 @@ describe('HomeBlockComponent', () => {
       providers: [
         { provide: FirestoreService, useValue: MockModule.firestoreService },
         // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-        { provide: FirestorageService, useValue: MockModule.firestorageService }
+        { provide: FirestorageService, useValue: MockModule.firestorageService },
+        { provide: DeviceDetectorService, useValue: MockModule.deviceDetector }
       ]
     })
     .compileComponents();

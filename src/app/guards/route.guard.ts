@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Location } from '@angular/common';
-import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
-import { DeviceDetectorService } from 'ngx-device-detector';
+import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { DeviceDetectorService } from 'src/app/services/device-detector.service';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -20,9 +20,6 @@ export class RouteGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      
-    console.log('Route: ', route);
-    console.log('state: ', state);
 
     if (this.isNotMobilePathOnMobileDevice(state)) {
       this.location.go(this.MOBILE_URL);

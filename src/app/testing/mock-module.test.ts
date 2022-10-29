@@ -88,6 +88,20 @@ class FirestorageService {
     }
 }
 
+@Injectable({providedIn: 'root'})
+class DeviceDetectorService {
+    isMobile(): boolean {
+        return false;
+    }
+}
+
+@Injectable({providedIn: 'root'})
+class ReCaptchaV3Service {
+    execute(action: string): any {
+        return of('token');
+    }
+}
+
 
 @NgModule({
     declarations: [
@@ -133,6 +147,8 @@ class FirestorageService {
 export class MockModule {
     static firestoreService: FirestoreService = new FirestoreService({} as Firestore);
     static firestorageService: FirestorageService = new FirestorageService({} as Storage);
+    static deviceDetector: DeviceDetectorService = new DeviceDetectorService();
+    static recaptcha: ReCaptchaV3Service = new ReCaptchaV3Service();
 
     static routes = [
         { path: 'home', component: HomeBlockComponent },

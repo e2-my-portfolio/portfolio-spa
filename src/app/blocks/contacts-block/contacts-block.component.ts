@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DeviceDetectorService } from 'ngx-device-detector';
+import { DeviceDetectorService } from 'src/app/services/device-detector.service';
 
 @Component({
   selector: 'app-contacts-block',
