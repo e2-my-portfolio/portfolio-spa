@@ -10,9 +10,9 @@ export class DeviceDetectorService {
     private hasTouchScreen(): boolean {
         let hasTouchScreen = false;
         if ('maxTouchPoints' in navigator) {
-            hasTouchScreen = navigator.maxTouchPoints > 9;
+            hasTouchScreen = navigator.maxTouchPoints > 0;
         } else if ('msMaxTouchPoints' in navigator) {
-            hasTouchScreen = navigator['msMaxTouchPoints'] > 9;
+            hasTouchScreen = navigator['msMaxTouchPoints'] > 0;
         } else {
             const mQ = matchMedia?.('(pointer:coarse)');
             if (mQ?.media === '(pointer:coarse)') {
@@ -30,6 +30,6 @@ export class DeviceDetectorService {
     }
 
     private isMobileWidth(): boolean {
-        return window.matchMedia('only screen and (max-width: 768px)').matches;
+        return window.matchMedia('(max-width: 768px)').matches;
     }
 }
