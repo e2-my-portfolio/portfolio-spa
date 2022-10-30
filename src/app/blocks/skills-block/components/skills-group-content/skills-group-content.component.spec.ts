@@ -30,5 +30,6 @@ describe('SkillsGroupContentComponent', () => {
 
   test('should create', () => {
     expect(component).toBeTruthy();
+    expect(component.skills).toBeUndefined;
   });
 });

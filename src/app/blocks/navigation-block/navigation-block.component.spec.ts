@@ -5,6 +5,7 @@ import { Collection } from 'src/app/constants/collections';
 import { FirestoreService } from 'src/app/services/firestore.service';
 import { Mock } from 'src/app/testing/mock-data.test';
 import { MockModule } from 'src/app/testing/mock-module.test';
+import { ProfilePictureComponent } from '../components/profile-picture/profile-picture.component';
 import { NavigationButtonsComponent } from './components/navigation-buttons/navigation-buttons.component';
 import { SocialLinksBarComponent } from './components/social-links-bar/social-links-bar.component';
 import { NavigationBlockComponent } from './navigation-block.component';
@@ -21,6 +22,7 @@ describe('NavigationBlockComponent', () => {
         NavigationButtonsComponent,
         SocialLinksBarComponent,
         NavigationBlockComponent,
+        ProfilePictureComponent
       ],
       imports: [
         RouterTestingModule,
