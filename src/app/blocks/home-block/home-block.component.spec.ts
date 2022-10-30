@@ -12,6 +12,8 @@ import { HomeBlockComponent } from './home-block.component';
 describe('HomeBlockComponent', () => {
   let component: HomeBlockComponent;
   let fixture: ComponentFixture<HomeBlockComponent>;
+  let firestorageService: FirestorageService;
+  let firestorageSpy: jest.SpyInstance;
   let firestoreService: FirestoreService;
   let firestoreSpy: jest.SpyInstance;
 
@@ -39,11 +41,16 @@ describe('HomeBlockComponent', () => {
     component = fixture.componentInstance;
     firestoreService = TestBed.inject(FirestoreService);
     firestoreSpy = jest.spyOn(firestoreService, 'getCollectionItem')
-                        .mockReturnValue(of(Mock.homeTabData ));
+                    .mockReturnValue(of(Mock.homeTabData ));
+    firestorageService = TestBed.inject(FirestorageService);
+    firestorageSpy = jest.spyOn(firestorageService, 'getCvFileUrl')
+                    .mockReturnValue(of('https://www.orimi.com/pdf-test.pdf'));
   });
 
   test('should create', () => {
     expect(component).toBeTruthy();
+    expect(component.loading).toBeTruthy();
+    expect(component.deviceDetector).toBeDefined();
   });
 
   test('should init home tab data', () => {
@@ -62,5 +69,10 @@ describe('HomeBlockComponent', () => {
     expect(component.loading).toBeTruthy();
     component.ngOnInit();
     expect(component.loading).toBeFalsy();
+  });
+
+  test('should download CV', () => {
+    component.downloadCV();
+    expect(firestorageSpy).toHaveBeenCalledTimes(1);
   });
 });

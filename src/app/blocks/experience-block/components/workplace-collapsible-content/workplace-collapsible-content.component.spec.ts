@@ -32,5 +32,7 @@ describe('WorkplaceCollapsibleContentComponent', () => {
 
   test('should create', () => {
     expect(component).toBeTruthy();
+    expect(component.deviceDetector).toBeDefined();
+    expect(component.positions).toEqual([]);
   });
 });

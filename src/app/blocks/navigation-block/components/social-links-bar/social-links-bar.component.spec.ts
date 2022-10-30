@@ -1,6 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { FirestoreService } from 'src/app/services/firestore.service';
-import { MockModule } from 'src/app/testing/mock-module.test';
 import { SocialLinksBarComponent } from './social-links-bar.component';
 
 describe('SocialLinksBarComponent', () => {
@@ -9,11 +7,8 @@ describe('SocialLinksBarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SocialLinksBarComponent ],
-      imports: [
-      ],
-      providers: [
-        { provide: FirestoreService, useValue: MockModule.firestoreService },
+      declarations: [
+        SocialLinksBarComponent
       ]
     })
     .compileComponents();
@@ -27,5 +22,6 @@ describe('SocialLinksBarComponent', () => {
 
   test('should create', () => {
     expect(component).toBeTruthy();
+    expect(component.data).toBeUndefined();
   });
 });

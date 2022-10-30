@@ -32,5 +32,7 @@ describe('AboutTextContainerComponent', () => {
 
   test('should create', () => {
     expect(component).toBeTruthy();
+    expect(component.animationDelay).toBe(0);
   });
+
 });

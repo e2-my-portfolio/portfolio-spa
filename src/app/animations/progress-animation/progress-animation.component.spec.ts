@@ -1,3 +1,4 @@
+import { SimpleChange, SimpleChanges } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProgressAnimationComponent } from './progress-animation.component';
@@ -16,10 +17,24 @@ describe('ProgressAnimationComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(ProgressAnimationComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   test('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  test('should set progress style class on init', () => {
+    component.progress = 5;
+    component.ngOnInit();
+    expect(component.progressClass).toEqual('timelapse-5');
+  });
+
+  test('should change progress class', () => {
+    component.progress = 1;
+    component.ngOnInit();
+    expect(component.progressClass).toEqual('timelapse-1');
+
+    component.ngOnChanges({progress: new SimpleChange(1, 2, true)});
+    expect(component.progressClass).toEqual('timelapse-2');
   });
 });

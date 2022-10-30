@@ -6,7 +6,7 @@ import { Company } from 'src/app/models/data/company.model';
 import { Unsubscribable } from 'src/app/operators/unsubscribtion.operator';
 import { FirestorageService } from 'src/app/services/firestorage.service';
 import { FirestoreService } from 'src/app/services/firestore.service';
-import { HomePageData } from './models/home-page.data';
+import { HomePageData } from '../../models/data/home-page.data';
 
 @Component({
   selector: 'app-home-block',
@@ -38,7 +38,6 @@ export class HomeBlockComponent extends Unsubscribable() implements OnInit {
   downloadCV(): void {
     this.firestorage.getCvFileUrl().subscribe((url: string) => {
       const downloadLink = document.createElement('a');
-      console.log(url);
       downloadLink.download = `cv.pdf`;
       downloadLink.href = url;
       downloadLink.target = '_blank';

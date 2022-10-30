@@ -8,7 +8,9 @@ describe('ProfilePictureComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProfilePictureComponent ]
+      declarations: [
+        ProfilePictureComponent
+      ]
     })
     .compileComponents();
 
@@ -19,5 +21,6 @@ describe('ProfilePictureComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+    expect(component.pictureSize).toStrictEqual({ width: '6rem', height: '6rem' });
   });
 });

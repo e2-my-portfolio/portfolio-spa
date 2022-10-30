@@ -1,4 +1,4 @@
-import { HomePageData } from '../blocks/home-block/models/home-page.data';
+import { HomePageData } from '../models/data/home-page.data';
 import { Skill, SkillGroup } from '../blocks/skills-block/models/skills.data';
 import { AboutDescription } from '../models/data/about.model';
 import { Profile } from '../models/data/profile.model';
