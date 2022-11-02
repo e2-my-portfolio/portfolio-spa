@@ -2,6 +2,14 @@
     overflow-y: scroll;
 }
 
+.home-container {
+    height: 45rem;
+}
+
+.content-container {
+    z-index: 10;
+}
+
 .profile-picture {
     margin-top: 2rem;
 }

@@ -1,40 +1,46 @@
 <div class="h-100 mobile-container">
-    <div class="profile-picture">
-        <app-profile-picture [pictureSize]="profilePictureSize"></app-profile-picture>
-    </div>
 
+    <app-mobile-background></app-mobile-background>
+
+    <div class="glass content-container">
+        <div class="profile-picture">
+            <app-profile-picture [pictureSize]="profilePictureSize"></app-profile-picture>
+        </div>
     
-    <app-home-block></app-home-block>
-
-    <div class="w-100 social-links-wrapper">
-        <app-social-links-bar [data]="(socialLinks$ | async)"></app-social-links-bar>
+        <div class="home-container">
+            <app-home-block></app-home-block>
+        </div>
+    
+        <div class="w-100 social-links-wrapper">
+            <app-social-links-bar [data]="(socialLinks$ | async)"></app-social-links-bar>
+        </div>
+    
+        <app-h-line></app-h-line>
+    
+        <div class="block-container">
+            <h1>About me</h1>
+            <app-about-block></app-about-block>
+        </div>
+    
+        <app-h-line></app-h-line>
+    
+        <div class="block-container">
+            <h1>Skills</h1>
+            <app-skills-block></app-skills-block>
+        </div>
+    
+        <app-h-line></app-h-line>
+    
+        <div class="block-container">
+            <h1>Experience</h1>
+            <app-experience-block></app-experience-block>
+        </div>
+    
+        <app-h-line></app-h-line>
+    
+        <div class="block-container">
+            <app-contacts-block></app-contacts-block>
+        </div>
+        <div class="p-5"></div>
     </div>
-
-    <app-h-line></app-h-line>
-
-    <div class="block-container">
-        <h1>About me</h1>
-        <app-about-block></app-about-block>
-    </div>
-
-    <app-h-line></app-h-line>
-
-    <div class="block-container">
-        <h1>Skills</h1>
-        <app-skills-block></app-skills-block>
-    </div>
-
-    <app-h-line></app-h-line>
-
-    <div class="block-container">
-        <h1>Experience</h1>
-        <app-experience-block></app-experience-block>
-    </div>
-
-    <app-h-line></app-h-line>
-
-    <div class="block-container">
-        <app-contacts-block></app-contacts-block>
-    </div>
-    <div class="p-5"></div>
 </div>

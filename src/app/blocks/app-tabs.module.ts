@@ -30,6 +30,7 @@ import { LoaderComponent } from './components/loader/loader.component';
 import { ProfilePictureComponent } from './components/profile-picture/profile-picture.component';
 import { HLineComponent } from './components/h-line/h-line.component';
 import { SkillGroupMobileContentComponent } from './skills-block/components/skill-group-mobile-content/skill-group-mobile-content.component';
+import { MobileBackgroundComponent } from './mobile-block/components/mobile-background/mobile-background.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { SkillGroupMobileContentComponent } from './skills-block/components/skil
     LoaderComponent,
     ProfilePictureComponent,
     HLineComponent,
-    SkillGroupMobileContentComponent
+    SkillGroupMobileContentComponent,
+    MobileBackgroundComponent
   ],
   imports: [
     CommonModule,
@@ -87,6 +89,7 @@ import { SkillGroupMobileContentComponent } from './skills-block/components/skil
     RecaptchaV3Module,
     RecaptchaFormsModule,
     MobileBlockComponent,
+    MobileBackgroundComponent
   ],
   providers: [
     {
