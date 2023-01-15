@@ -19,7 +19,6 @@ const routes: Routes = [{
     { path: 'experience', component: ExperienceBlockComponent, canActivate: [RouteGuard] },
     { path: 'contacts', component: ContactsBlockComponent, canActivate: [RouteGuard] },
     { path: 'mobile', component: MobileBlockComponent, canActivate: [RouteGuard] },
-    { path: '**', redirectTo: 'home' }
   ]}
 
 ];

@@ -12,5 +12,12 @@ export const environment = {
   },
   recaptcha: {
     siteKey: ''
+  },
+  adSense: {
+    client: '',
+    adSlots: {
+      pageBottom: 0 
+    },
+    show: true
   }
 };

@@ -23,7 +23,13 @@ import { TakeEveryPipe } from '../pipes/take-every.pipe';
 import { AboutTextContainerComponent } from './about-block/components/about-text-container/about-text-container.component';
 import { WorkplaceSortPipe } from '../pipes/workplace-sort.pipe';
 import { MultilinePipe } from '../pipes/multiline.pipe';
-import { RecaptchaFormsModule, RecaptchaSettings, RecaptchaV3Module, RECAPTCHA_BASE_URL, RECAPTCHA_LANGUAGE, RECAPTCHA_SETTINGS, RECAPTCHA_V3_SITE_KEY } from 'ng-recaptcha';
+import { RecaptchaFormsModule,
+          RecaptchaSettings,
+          RecaptchaV3Module,
+          RECAPTCHA_BASE_URL,
+          RECAPTCHA_LANGUAGE,
+          RECAPTCHA_SETTINGS,
+          RECAPTCHA_V3_SITE_KEY } from 'ng-recaptcha';
 import { environment } from 'src/environments/environment';
 import { MobileBlockComponent } from './mobile-block/mobile-block.component';
 import { LoaderComponent } from './components/loader/loader.component';
@@ -58,7 +64,7 @@ import { MobileBackgroundComponent } from './mobile-block/components/mobile-back
     ProfilePictureComponent,
     HLineComponent,
     SkillGroupMobileContentComponent,
-    MobileBackgroundComponent
+    MobileBackgroundComponent,
   ],
   imports: [
     CommonModule,
@@ -89,7 +95,7 @@ import { MobileBackgroundComponent } from './mobile-block/components/mobile-back
     RecaptchaV3Module,
     RecaptchaFormsModule,
     MobileBlockComponent,
-    MobileBackgroundComponent
+    MobileBackgroundComponent,
   ],
   providers: [
     {

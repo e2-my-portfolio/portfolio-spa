@@ -20,7 +20,7 @@ import {
   /*ScreenTrackingService,
   UserTrackingService*/
 } from '@angular/fire/analytics';
-
+import { AdsenseModule } from 'ng2-adsense';
 
 @NgModule({
   declarations: [
@@ -37,6 +37,10 @@ import {
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireStorageModule,
     AppTabsModule,
+    AdsenseModule.forRoot({
+      adClient: environment.adSense.client,
+      adSlot: environment.adSense.adSlots.pageBottom,
+    }),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
     provideAnalytics(() => getAnalytics()),

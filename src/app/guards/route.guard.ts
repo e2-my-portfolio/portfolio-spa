@@ -21,6 +21,7 @@ export class RouteGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
+    console.log('is mobile: ', this.device.isMobile());
     if (this.isNotMobilePathOnMobileDevice(state)) {
       this.location.go(this.MOBILE_URL);
     } else if (this.isMobilePathOnNotMobileDevice(state)) {

@@ -4,7 +4,7 @@ import { Injectable } from "@angular/core";
 export class DeviceDetectorService {
 
     isMobile(): boolean {
-        return this.hasTouchScreen() && this.isMobileWidth();
+        return this.isMobileWidth();
     }
 
     private hasTouchScreen(): boolean {

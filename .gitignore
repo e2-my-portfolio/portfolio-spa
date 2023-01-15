@@ -45,6 +45,7 @@ testem.log
 some.md
 GitHub.md
 HELP.md
+firebase-debug.log
 
 # System Files
 .DS_Store
