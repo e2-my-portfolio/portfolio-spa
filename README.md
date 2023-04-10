@@ -1,7 +1,6 @@
-[![Build](https://github.com/e2-projects/my-portfolio/actions/workflows/build.yml/badge.svg)](https://github.com/e2-projects/my-portfolio/actions/workflows/build.yml)
-[![Lint](https://github.com/e2-projects/my-portfolio/actions/workflows/lint.yml/badge.svg)](https://github.com/e2-projects/my-portfolio/actions/workflows/lint.yml)
-[![Test](https://github.com/e2-projects/my-portfolio/actions/workflows/test.yml/badge.svg)](https://github.com/e2-projects/my-portfolio/actions/workflows/test.yml)
-[![Deploy](https://github.com/e2-projects/my-portfolio/actions/workflows/deploy.yaml/badge.svg)](https://github.com/e2-projects/my-portfolio/actions/workflows/deploy.yaml)
+[![Build](https://github.com/e2-my-portfolio/portfolio-spa/actions/workflows/build.yml/badge.svg)](https://github.com/e2-my-portfolio/portfolio-spa/actions/workflows/build.yml)
+[![Lint](https://github.com/e2-my-portfolio/portfolio-spa/actions/workflows/lint.yml/badge.svg)](https://github.com/e2-my-portfolio/portfolio-spa/actions/workflows/lint.yml)
+[![Test](https://github.com/e2-my-portfolio/portfolio-spa/actions/workflows/test.yml/badge.svg)](https://github.com/e2-my-portfolio/portfolio-spa/actions/workflows/test.yml)
 
 # My Portfolio
 
@@ -25,4 +24,4 @@ Run `npm test` or `jest` to start unit tests
 
 ---
 
-&copy; Edvardas Jusius, 2022
+&copy; Edvardas Jusius (Dum6o), 2023

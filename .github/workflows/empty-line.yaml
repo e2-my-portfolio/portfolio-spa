@@ -1,0 +1,19 @@
+---
+name: Add empty line at the EOF
+
+on:
+  pull_request:
+    types: [ synchronize, opened ]
+
+jobs:
+  update:
+    name: New line
+    runs-on: [ ubuntu-latest ]
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v3
+      - name: Add new lines
+        uses: e2-actions/newline-action@0.0.4
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          

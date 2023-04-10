@@ -4,6 +4,7 @@ import { AboutDescription } from '../models/data/about.model';
 import { Profile } from '../models/data/profile.model';
 import { SocialLinks } from '../models/data/social-links.model';
 import { WorkingPosition, Workplace } from '../models/data/workplace.model';
+import { Basics } from '../models/data/basics.model';
 
 export class Mock {
 
@@ -101,6 +102,7 @@ export class Mock {
         Mock.workplaceFacebook
     ];
 
+    // remove
     public static homeTabData: HomePageData = {
         fullName: `${Mock.profile.name} ${Mock.profile.surname}`,
         address: 'New York, US',
@@ -111,6 +113,16 @@ export class Mock {
         description: 'Baba Yaga',
         position: Mock.profile.position
     };
+
+    public static basics: Basics = {
+        name: 'Jack',
+        surname: 'Sparrow',
+        position: 'Captain',
+        city: 'Port Royal',
+        country: 'Caribbean',
+        description: 'Pirate boat The Black Pearl captain',
+        companyName: 'The Black Pearl'
+    }
 
     public static skillLevel2: Skill = {
         name: 'Skill 1',
