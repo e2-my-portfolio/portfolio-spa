@@ -22,12 +22,10 @@ export class RouteGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-    console.log(state.url);
-
     if (this.isNotMobilePathOnMobileDevice(state)) {
-      this.router.navigate([this.MOBILE_URL]);
+      this.router.navigate([this.MOBILE_URL]).catch(e => console.error(e));
     } else if (this.isMobilePathOnNotMobileDevice(state) || state.url === '/') {
-      this.router.navigate([this.HOME_URL]);
+      this.router.navigate([this.HOME_URL]).catch(e => console.error(e));
     }
     return true;
   }

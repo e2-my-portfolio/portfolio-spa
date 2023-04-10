@@ -56,6 +56,7 @@ export class HomeBlockComponent extends Unsubscribable() implements OnInit {
       this.downloadCvFrom(this.cvUrl);
     } else {
       this.firestorage.getCvFileUrl()
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
         .pipe(takeUntil(this.unsubscribe))
         .subscribe((url: string) => {
           this.downloadCvFrom(url);

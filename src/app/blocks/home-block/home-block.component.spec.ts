@@ -13,7 +13,6 @@ import { SessionStorageService } from 'src/app/services/session-storage.service'
 describe('HomeBlockComponent', () => {
   let component: HomeBlockComponent;
   let fixture: ComponentFixture<HomeBlockComponent>;
-  let storage: SessionStorageService;
   let firestorageService: FirestorageService;
   let firestorageSpy: jest.SpyInstance;
   let firestoreService: FirestoreService;
@@ -42,7 +41,6 @@ describe('HomeBlockComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(HomeBlockComponent);
     component = fixture.componentInstance;
-    storage = TestBed.inject(SessionStorageService);
     firestoreService = TestBed.inject(FirestoreService);
     firestoreSpy = jest.spyOn(firestoreService, 'getCollectionItem')
                     .mockReturnValue(of(Mock.basics));
