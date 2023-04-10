@@ -13,7 +13,8 @@
     "test:full": "npm run lint && npm run test",
     "build:ci": "npm run clean && npm run build:prod",
     "deploy": "npm run clean && npm run build && firebase deploy --only hosting",
-    "deploy:ci": "npm run config && npm run build && firebase deploy --only hosting"
+    "deploy:ci": "npm run config && npm run build && firebase deploy --only hosting",
+    "deploy:local": "npm run clean && ng build -c local && firebase deploy --only hosting"
   },
   "private": true,
   "dependencies": {
