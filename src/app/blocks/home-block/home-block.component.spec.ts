@@ -8,10 +8,12 @@ import { FirestoreService } from 'src/app/services/firestore.service';
 import { Mock } from 'src/app/testing/mock-data.test';
 import { MockModule } from 'src/app/testing/mock-module.test';
 import { HomeBlockComponent } from './home-block.component';
+import { SessionStorageService } from 'src/app/services/session-storage.service';
 
 describe('HomeBlockComponent', () => {
   let component: HomeBlockComponent;
   let fixture: ComponentFixture<HomeBlockComponent>;
+  let storage: SessionStorageService;
   let firestorageService: FirestorageService;
   let firestorageSpy: jest.SpyInstance;
   let firestoreService: FirestoreService;
@@ -27,6 +29,7 @@ describe('HomeBlockComponent', () => {
         MockModule,
       ],
       providers: [
+        SessionStorageService,
         { provide: FirestoreService, useValue: MockModule.firestoreService },
         // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         { provide: FirestorageService, useValue: MockModule.firestorageService },
@@ -39,9 +42,10 @@ describe('HomeBlockComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(HomeBlockComponent);
     component = fixture.componentInstance;
+    storage = TestBed.inject(SessionStorageService);
     firestoreService = TestBed.inject(FirestoreService);
     firestoreSpy = jest.spyOn(firestoreService, 'getCollectionItem')
-                    .mockReturnValue(of(Mock.homeTabData ));
+                    .mockReturnValue(of(Mock.basics));
     firestorageService = TestBed.inject(FirestorageService);
     firestorageSpy = jest.spyOn(firestorageService, 'getCvFileUrl')
                     .mockReturnValue(of('https://www.orimi.com/pdf-test.pdf'));
@@ -56,12 +60,15 @@ describe('HomeBlockComponent', () => {
   test('should init home tab data', () => {
     expect(component.loading).toBeTruthy();
     component.ngOnInit();
-    expect(firestoreSpy).toHaveBeenCalledWith(Collection.HOME_TAB_DATA);
+
+    expect(firestoreSpy).toHaveBeenCalledWith(Collection.BASICS);
+
     expect(component.title).toEqual(`Hello. I'm `);
-    expect(component.name).toEqual(Mock.homeTabData.fullName);
-    expect(component.info).toEqual(`I'm a ${Mock.homeTabData.position.toLowerCase()} living in ${Mock.homeTabData.address}. Currently I'm working in `);
-    expect(component.company).toEqual(Mock.homeTabData.company);
-    expect(component.description).toEqual(Mock.homeTabData.description);
+    expect(component.name).toEqual('Jack Sparrow');
+    expect(component.info).toEqual(`I'm a captain living in Port Royal, Caribbean. Currently I'm working in `);
+    expect(component.company).toEqual({ name: Mock.basics.companyName, url: Mock.basics.companyUrl });
+    expect(component.description).toEqual(Mock.basics.description);
+
     expect(component.loading).toBeFalsy();
   });
 
