@@ -38,7 +38,7 @@ export class HomeBlockComponent extends Unsubscribable() implements OnInit {
   }
 
   ngOnInit(): void {
-    if (this.data) {
+    if (this.data && Object.keys(this.data).length !== 0) {
       this.setupData(this.data);
     } else {
       this.firestore.getCollectionItem<Basics>(Collection.BASICS)
@@ -66,8 +66,7 @@ export class HomeBlockComponent extends Unsubscribable() implements OnInit {
 
   private setupData(data: Basics): void {
     this.title = `Hello. I'm `;
-    this.name = this.resolveFullName(data
-      );
+    this.name = this.resolveFullName(data);
     this.info = `I'm a ${data.position.toLowerCase()} living in ${this.resolveAddress(data)}. Currently I'm working in `;
     this.company = this.resolveCompany(data);
     this.description = data.description;
