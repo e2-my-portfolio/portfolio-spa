@@ -1,6 +1,5 @@
-import { HomePageData } from '../models/data/home-page.data';
 import { Skill, SkillGroup } from '../blocks/skills-block/models/skills.data';
-import { AboutDescription } from '../models/data/about.model';
+import { Story } from '../models/data/story.model';
 import { Profile } from '../models/data/profile.model';
 import { SocialLinks } from '../models/data/social-links.model';
 import { WorkingPosition, Workplace } from '../models/data/workplace.model';
@@ -22,7 +21,7 @@ export class Mock {
     };
 
     /*  ABOUT TAB  */
-    public static aboutDescription: AboutDescription[] = [
+    public static stories: Story[] = [
         {
             title: 'First description',
             content: 'Some first decription\nwith multi lines of\n text.'
@@ -102,18 +101,6 @@ export class Mock {
         Mock.workplaceFacebook
     ];
 
-    // remove
-    public static homeTabData: HomePageData = {
-        fullName: `${Mock.profile.name} ${Mock.profile.surname}`,
-        address: 'New York, US',
-        company: {
-            name: 'Russian crime syndicate',
-            url: ''
-        },
-        description: 'Baba Yaga',
-        position: Mock.profile.position
-    };
-
     public static basics: Basics = {
         name: 'Jack',
         surname: 'Sparrow',
@@ -122,7 +109,7 @@ export class Mock {
         country: 'Caribbean',
         description: 'Pirate boat The Black Pearl captain',
         companyName: 'The Black Pearl'
-    }
+    };
 
     public static skillLevel2: Skill = {
         name: 'Skill 1',

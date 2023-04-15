@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { FadeInAnimation } from 'src/app/animations/custom-animations';
-import { AboutDescription } from 'src/app/models/data/about.model';
+import { Story } from 'src/app/models/data/story.model';
 
 @Component({
   selector: 'app-about-text-container',
@@ -12,6 +12,6 @@ import { AboutDescription } from 'src/app/models/data/about.model';
 export class AboutTextContainerComponent {
 
   @Input() animationDelay = 0;
-  @Input() data?: AboutDescription;
+  @Input() data?: Story;
 
 }

@@ -26,7 +26,7 @@ describe('AboutTextContainerComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(AboutTextContainerComponent);
     component = fixture.componentInstance;
-    component.data = Mock.aboutDescription[0];
+    component.data = Mock.stories[0];
     fixture.detectChanges();
   });
 
