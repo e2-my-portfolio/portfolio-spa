@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Skill } from '../../models/skills.data';
+import { Skill } from 'src/app/models/data/skills.model';
 
 @Component({
   selector: 'app-skill-group-mobile-content',
