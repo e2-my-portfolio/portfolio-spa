@@ -1,9 +1,9 @@
-import { Skill, SkillGroup } from '../blocks/skills-block/models/skills.data';
 import { Story } from '../models/data/story.model';
 import { Profile } from '../models/data/profile.model';
 import { SocialLinks } from '../models/data/social-links.model';
 import { WorkingPosition, Workplace } from '../models/data/workplace.model';
 import { Basics } from '../models/data/basics.model';
+import { Skill, SkillsGroup } from '../models/data/skills.model';
 
 export class Mock {
 
@@ -113,22 +113,22 @@ export class Mock {
 
     public static skillLevel2: Skill = {
         name: 'Skill 1',
-        level: '2'
+        level: 2
     };
 
     public static skillLevel5: Skill = {
         name: 'Skill 2',
-        level: '5'
+        level: 5
     };
 
     public static skillLevel1: Skill = {
         name: 'Skill 3',
-        level: '1'
+        level: 1
     };
 
-    public static skillGroup: SkillGroup = {
+    public static skillGroup: SkillsGroup = {
         name: 'Skill Group 1',
-        position: 1,
+        order: 1,
         skills: [
             Mock.skillLevel2,
             Mock.skillLevel1,

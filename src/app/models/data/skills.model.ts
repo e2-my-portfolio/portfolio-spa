@@ -1,10 +1,10 @@
-export interface SkillGroup {
+export interface SkillsGroup {
     name: string;
-    position: number;
+    order: number;
     skills: Skill[];
 }
 
 export interface Skill {
     name: string;
-    level: string;
+    level: number;
 }

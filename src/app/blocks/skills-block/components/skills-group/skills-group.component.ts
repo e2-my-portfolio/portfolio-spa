@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { SkillsGroup } from 'src/app/models/data/skills.model';
 import { DeviceDetectorService } from 'src/app/services/device-detector.service';
-import { SkillGroup } from '../../models/skills.data';
 
 @Component({
   selector: 'app-skills-group',
@@ -9,7 +9,7 @@ import { SkillGroup } from '../../models/skills.data';
 })
 export class SkillsGroupComponent implements OnInit {
 
-  @Input() skillGroup: SkillGroup;
+  @Input() skillGroup: SkillsGroup;
   visible = false;
   isMobile = false;
 

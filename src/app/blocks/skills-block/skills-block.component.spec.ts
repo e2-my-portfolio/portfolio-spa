@@ -4,6 +4,8 @@ import { FirestoreService } from 'src/app/services/firestore.service';
 import { Mock } from 'src/app/testing/mock-data.test';
 import { MockModule } from 'src/app/testing/mock-module.test';
 import { SkillsBlockComponent } from './skills-block.component';
+import { SessionStorageService } from 'src/app/services/session-storage.service';
+import { StorageKey } from 'src/app/constants/storage-keys';
 
 describe('SkillsBlockComponent', () => {
   let component: SkillsBlockComponent;
@@ -20,6 +22,7 @@ describe('SkillsBlockComponent', () => {
         MockModule,
       ],
       providers: [
+        SessionStorageService,
         { provide: FirestoreService, useValue: MockModule.firestoreService },
       ]
     })
@@ -31,6 +34,9 @@ describe('SkillsBlockComponent', () => {
     component = fixture.componentInstance;
     firestoreService = TestBed.inject(FirestoreService);
     firestoreSpy = jest.spyOn(firestoreService, 'getCollectionItems');
+
+    const sessionStorage = new SessionStorageService();
+    sessionStorage.remove(StorageKey.SKILLS);
   });
 
   test('should create', () => {
