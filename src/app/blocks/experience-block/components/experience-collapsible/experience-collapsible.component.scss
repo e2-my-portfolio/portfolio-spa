@@ -1,0 +1,23 @@
+.collapsible {
+    cursor: pointer;
+    padding: 18px;
+}
+
+.date-interval {
+    color: grey;
+    font-size: smaller;
+    display: flex;
+    flex-wrap: nowrap;
+    &-mobile {
+        font-size: x-small;
+        min-width: fit-content;
+    }
+}
+
+.company-name {
+    font-size: 1.5rem;
+    font-weight: 500;
+    &-mobile {
+        font-size: medium;
+    }
+}

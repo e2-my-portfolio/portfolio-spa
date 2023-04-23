@@ -6,8 +6,6 @@ import { SkillsGroupContentComponent } from './skills-block/components/skills-gr
 import { NavigationButtonsComponent } from './navigation-block/components/navigation-buttons/navigation-buttons.component';
 import { SocialLinksBarComponent } from './navigation-block/components/social-links-bar/social-links-bar.component';
 import { HomeBlockComponent } from './home-block/home-block.component';
-import { WorkplaceCollapsibleComponent } from './experience-block/components/workplace-collapsible/workplace-collapsible.component';
-import { WorkplaceCollapsibleContentComponent } from './experience-block/components/workplace-collapsible-content/workplace-collapsible-content.component';
 import { ExperienceBlockComponent } from './experience-block/experience-block.component';
 import { ContactFormComponent } from './contacts-block/components/contact-form/contact-form.component';
 import { ContactsBlockComponent } from './contacts-block/contacts-block.component';
@@ -31,6 +29,8 @@ import { ProfilePictureComponent } from './components/profile-picture/profile-pi
 import { HLineComponent } from './components/h-line/h-line.component';
 import { SkillGroupMobileContentComponent } from './skills-block/components/skill-group-mobile-content/skill-group-mobile-content.component';
 import { MobileBackgroundComponent } from './mobile-block/components/mobile-background/mobile-background.component';
+import { ExperienceCollapsibleComponent } from './experience-block/components/experience-collapsible/experience-collapsible.component';
+import { ExperienceCollapsibleContentComponent } from './experience-block/components/experience-collapsible-content/experience-collapsible-content.component';
 
 @NgModule({
   declarations: [
@@ -40,8 +40,6 @@ import { MobileBackgroundComponent } from './mobile-block/components/mobile-back
     NavigationButtonsComponent,
     SocialLinksBarComponent,
     HomeBlockComponent,
-    WorkplaceCollapsibleComponent,
-    WorkplaceCollapsibleContentComponent,
     ExperienceBlockComponent,
     ContactFormComponent,
     ContactsBlockComponent,
@@ -58,7 +56,9 @@ import { MobileBackgroundComponent } from './mobile-block/components/mobile-back
     ProfilePictureComponent,
     HLineComponent,
     SkillGroupMobileContentComponent,
-    MobileBackgroundComponent
+    MobileBackgroundComponent,
+    ExperienceCollapsibleComponent,
+    ExperienceCollapsibleContentComponent
   ],
   imports: [
     CommonModule,
@@ -76,8 +76,6 @@ import { MobileBackgroundComponent } from './mobile-block/components/mobile-back
     NavigationButtonsComponent,
     SocialLinksBarComponent,
     HomeBlockComponent,
-    WorkplaceCollapsibleComponent,
-    WorkplaceCollapsibleContentComponent,
     ExperienceBlockComponent,
     ContactFormComponent,
     ContactsBlockComponent,
@@ -89,7 +87,9 @@ import { MobileBackgroundComponent } from './mobile-block/components/mobile-back
     RecaptchaV3Module,
     RecaptchaFormsModule,
     MobileBlockComponent,
-    MobileBackgroundComponent
+    MobileBackgroundComponent,
+    ExperienceCollapsibleComponent,
+    ExperienceCollapsibleContentComponent
   ],
   providers: [
     {

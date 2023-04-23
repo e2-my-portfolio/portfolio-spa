@@ -1,0 +1,14 @@
+<div [@fade]="{value:'', params:{animationDelay:animationDelay}}" class="glass mb-3">
+    <div class="collapsible w-100 unselectable"
+        (click)="toggle()">
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="text-start">
+                <span *ngIf="visible"><i class="fas fa-angle-up"></i></span>
+                <span *ngIf="!visible"><i class="fas fa-angle-down"></i></span>
+                &nbsp;<span [ngClass]="deviceDetector.isMobile() ? 'company-name-mobile' : 'company-name'">{{experience.company.name}}</span>
+            </div>
+            <div [ngClass]="deviceDetector.isMobile() ? 'date-interval-mobile' : 'date-interval'" class="date-interval">{{experience.startDate}} - {{experience.endDate}}</div> 
+        </div>
+    </div>
+    <app-experience-collapsible-content *ngIf="visible" [experience]="experience"></app-experience-collapsible-content>
+</div>
