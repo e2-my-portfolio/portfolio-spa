@@ -1,41 +1,39 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { ExperienceCollapsibleComponent } from './experience-collapsible.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { DeviceDetectorService } from 'src/app/services/device-detector.service';
-import { FirestoreService } from 'src/app/services/firestore.service';
-import { Mock } from 'src/app/testing/mock-data.test';
 import { MockModule } from 'src/app/testing/mock-module.test';
-import { WorkplaceCollapsibleComponent } from './workplace-collapsible.component';
+import { Mock } from 'src/app/testing/mock-data.test';
 
-describe('WorkplaceCollapsibleComponent', () => {
-  let component: WorkplaceCollapsibleComponent;
-  let fixture: ComponentFixture<WorkplaceCollapsibleComponent>;
+describe('ExperienceCollapsibleComponent', () => {
+  let component: ExperienceCollapsibleComponent;
+  let fixture: ComponentFixture<ExperienceCollapsibleComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [
-        WorkplaceCollapsibleComponent
+        ExperienceCollapsibleComponent
       ],
       imports: [
         NoopAnimationsModule,
         MockModule,
       ],
       providers: [
-        { provide: FirestoreService, useValue: MockModule.firestoreService },
         { provide: DeviceDetectorService, useValue: MockModule.deviceDetector }
       ]
     })
     .compileComponents();
-  });
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(WorkplaceCollapsibleComponent);
+    fixture = TestBed.createComponent(ExperienceCollapsibleComponent);
     component = fixture.componentInstance;
-    component.workplace = Mock.workplaceFacebook;
+    component.experience = Mock.experience;
     fixture.detectChanges();
   });
 
-  test('should create', () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
+    expect(component.deviceDetector).toBeDefined();
   });
 
   test('should toggle visibility', () => {

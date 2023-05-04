@@ -12,19 +12,6 @@ class AboutTextContainerComponent {
 @Component({selector: 'app-contact-form', template: ''})
 class ContactFormComponent {}
 
-
-@Component({selector: 'app-workplace-collapsible-content', template: ''})
-class WorkplaceCollapsibleContentComponent {
-    @Input() positions: any;
-}
-
-@Component({selector: 'app-workplace-collapsible', template: ''})
-class WorkplaceCollapsibleComponent {
-    @Input() visible: any;
-    @Input() workplace: any;
-    @Input() animationDelay: any;
-}
-
 @Component({selector: 'app-skills-group-content', template: ''})
 class SkillsGroupContentComponent {
     @Input() skills: any;
@@ -107,8 +94,6 @@ class ReCaptchaV3Service {
     declarations: [
         AboutTextContainerComponent,
         ContactFormComponent,
-        WorkplaceCollapsibleContentComponent,
-        WorkplaceCollapsibleComponent,
         SkillsGroupContentComponent,
         ProgressAnimationComponent,
         SkillsGroupComponent,
@@ -129,8 +114,6 @@ class ReCaptchaV3Service {
     exports: [
         AboutTextContainerComponent,
         ContactFormComponent,
-        WorkplaceCollapsibleContentComponent,
-        WorkplaceCollapsibleComponent,
         SkillsGroupContentComponent,
         ProgressAnimationComponent,
         SkillsGroupComponent,

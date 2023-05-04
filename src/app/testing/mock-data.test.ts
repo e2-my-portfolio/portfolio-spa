@@ -1,9 +1,10 @@
 import { Story } from '../models/data/story.model';
 import { Profile } from '../models/data/profile.model';
 import { SocialLinks } from '../models/data/social-links.model';
-import { WorkingPosition, Workplace } from '../models/data/workplace.model';
 import { Basics } from '../models/data/basics.model';
 import { Skill, SkillsGroup } from '../models/data/skills.model';
+import { Experience, Project } from '../models/data/experience.model';
+import { Company } from '../models/data/company.model';
 
 export class Mock {
 
@@ -20,7 +21,6 @@ export class Mock {
         githubUrl: 'https://github.com'
     };
 
-    /*  ABOUT TAB  */
     public static stories: Story[] = [
         {
             title: 'First description',
@@ -30,75 +30,6 @@ export class Mock {
             title: 'Second description',
             content: 'Short description text.'
         }
-    ];
-
-
-    /* WORKING PLACE */
-    public static positionInGoogle: WorkingPosition = {
-        name: 'Business Analyst',
-        projects: [
-          'Facebook search panel.',
-          'Facebook for business.',
-          'Facebook icons.'
-        ],
-        stack: 'Photoshop, Google Search, Android SDK, Facebook SDK',
-        startDate: '2015/11/15',
-        endDate: '2016/02/10'
-    };
-
-    public static workplaceGoogle: Workplace = {
-        companyName: 'Google',
-        positions: [ Mock.positionInGoogle ]
-    };
-
-    public static positionInAwesomeBank: WorkingPosition = {
-        name: 'Software engineer',
-        projects: [
-          'Bank main frame application'
-        ],
-        stack: 'COBOL, MS Servers',
-        startDate: '2012/11/15',
-        endDate: '2013/02/10'
-    };
-
-    public static workplaceAwesomeBank: Workplace = {
-        companyName: 'Awesome Bank',
-        positions: [ Mock.positionInAwesomeBank ]
-    };
-
-    public static positionInFacebook1: WorkingPosition = {
-        name: 'Business Analyst',
-        projects: [
-          'Facebook search panel.',
-          'Facebook for business.',
-          'Facebook icons.'
-        ],
-        stack: 'Photoshop, Google Search, Android SDK, Facebook SDK',
-        startDate: '2017/01/10',
-        endDate: '2018/06/23'
-    };
-
-    public static positionInFacebook2: WorkingPosition = {
-        name: 'Solution Developer',
-        projects: [
-          'Sushi restaurant mobile app. Mobile app is used by user who wants to pre-order food'
-        ],
-        stack: 'Java, Kotlin, Android SDK, C++',
-        startDate: '2019/05/15'
-    };
-
-    public static workplaceFacebook: Workplace = {
-        companyName: 'Facebook',
-        positions: [
-            Mock.positionInFacebook1,
-            Mock.positionInFacebook2
-        ]
-    };
-
-    public static workplaces: Workplace[] = [
-        Mock.workplaceGoogle,
-        Mock.workplaceAwesomeBank,
-        Mock.workplaceFacebook
     ];
 
     public static basics: Basics = {
@@ -134,6 +65,30 @@ export class Mock {
             Mock.skillLevel1,
             Mock.skillLevel5
         ]
+    };
+
+    public static project1: Project = {
+        name: 'Project1',
+        description: 'Project1 description'
+    };
+
+    public static project2: Project = {
+        name: 'Project1',
+        description: 'Project1 description'
+    };
+
+    public static company: Company = {
+        name: 'The Black Pearl',
+        url: 'www.google.com',
+        location: 'Caribbean'
+    };
+
+    public static experience: Experience = {
+        company: this.company,
+        position: 'Captain',
+        projects: [ this.project1, this.project2 ],
+        stack: 'Boats',
+        startDate: '1567'
     };
 
 }

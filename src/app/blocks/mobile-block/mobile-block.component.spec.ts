@@ -5,16 +5,14 @@ import { FirestorageService } from 'src/app/services/firestorage.service';
 import { FirestoreService } from 'src/app/services/firestore.service';
 import { Mock } from 'src/app/testing/mock-data.test';
 import { MockModule } from 'src/app/testing/mock-module.test';
-import { AboutBlockComponent } from '../about-block/about-block.component';
 import { HLineComponent } from '../components/h-line/h-line.component';
 import { ProfilePictureComponent } from '../components/profile-picture/profile-picture.component';
 import { ContactsBlockComponent } from '../contacts-block/contacts-block.component';
-import { ExperienceBlockComponent } from '../experience-block/experience-block.component';
-import { HomeBlockComponent } from '../home-block/home-block.component';
 import { SocialLinksBarComponent } from '../navigation-block/components/social-links-bar/social-links-bar.component';
 import { SkillsBlockComponent } from '../skills-block/skills-block.component';
 
 import { MobileBlockComponent } from './mobile-block.component';
+import { MobileBackgroundComponent } from './components/mobile-background/mobile-background.component';
 
 describe('MobileBlockComponent', () => {
   let component: MobileBlockComponent;
@@ -30,7 +28,8 @@ describe('MobileBlockComponent', () => {
         ContactsBlockComponent,
         SkillsBlockComponent,
         ProfilePictureComponent,
-        SocialLinksBarComponent
+        SocialLinksBarComponent,
+        MobileBackgroundComponent
       ],
       imports: [
         MockModule

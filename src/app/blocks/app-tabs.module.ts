@@ -6,8 +6,6 @@ import { SkillsGroupContentComponent } from './skills-block/components/skills-gr
 import { NavigationButtonsComponent } from './navigation-block/components/navigation-buttons/navigation-buttons.component';
 import { SocialLinksBarComponent } from './navigation-block/components/social-links-bar/social-links-bar.component';
 import { HomeBlockComponent } from './home-block/home-block.component';
-import { WorkplaceCollapsibleComponent } from './experience-block/components/workplace-collapsible/workplace-collapsible.component';
-import { WorkplaceCollapsibleContentComponent } from './experience-block/components/workplace-collapsible-content/workplace-collapsible-content.component';
 import { ExperienceBlockComponent } from './experience-block/experience-block.component';
 import { ContactFormComponent } from './contacts-block/components/contact-form/contact-form.component';
 import { ContactsBlockComponent } from './contacts-block/contacts-block.component';
@@ -21,7 +19,6 @@ import { NavigationBlockComponent } from './navigation-block/navigation-block.co
 import { ProgressAnimationComponent } from '../animations/progress-animation/progress-animation.component';
 import { TakeEveryPipe } from '../pipes/take-every.pipe';
 import { AboutTextContainerComponent } from './about-block/components/about-text-container/about-text-container.component';
-import { WorkplaceSortPipe } from '../pipes/workplace-sort.pipe';
 import { MultilinePipe } from '../pipes/multiline.pipe';
 import { RecaptchaFormsModule, RecaptchaSettings, RecaptchaV3Module, RECAPTCHA_BASE_URL, RECAPTCHA_LANGUAGE, RECAPTCHA_SETTINGS, RECAPTCHA_V3_SITE_KEY } from 'ng-recaptcha';
 import { environment } from 'src/environments/environment';
@@ -31,6 +28,8 @@ import { ProfilePictureComponent } from './components/profile-picture/profile-pi
 import { HLineComponent } from './components/h-line/h-line.component';
 import { SkillGroupMobileContentComponent } from './skills-block/components/skill-group-mobile-content/skill-group-mobile-content.component';
 import { MobileBackgroundComponent } from './mobile-block/components/mobile-background/mobile-background.component';
+import { ExperienceCollapsibleComponent } from './experience-block/components/experience-collapsible/experience-collapsible.component';
+import { ExperienceCollapsibleContentComponent } from './experience-block/components/experience-collapsible-content/experience-collapsible-content.component';
 
 @NgModule({
   declarations: [
@@ -40,8 +39,6 @@ import { MobileBackgroundComponent } from './mobile-block/components/mobile-back
     NavigationButtonsComponent,
     SocialLinksBarComponent,
     HomeBlockComponent,
-    WorkplaceCollapsibleComponent,
-    WorkplaceCollapsibleContentComponent,
     ExperienceBlockComponent,
     ContactFormComponent,
     ContactsBlockComponent,
@@ -51,14 +48,15 @@ import { MobileBackgroundComponent } from './mobile-block/components/mobile-back
     ProgressAnimationComponent,
     TakeEveryPipe,
     AboutTextContainerComponent,
-    WorkplaceSortPipe,
     MultilinePipe,
     MobileBlockComponent,
     LoaderComponent,
     ProfilePictureComponent,
     HLineComponent,
     SkillGroupMobileContentComponent,
-    MobileBackgroundComponent
+    MobileBackgroundComponent,
+    ExperienceCollapsibleComponent,
+    ExperienceCollapsibleContentComponent
   ],
   imports: [
     CommonModule,
@@ -76,8 +74,6 @@ import { MobileBackgroundComponent } from './mobile-block/components/mobile-back
     NavigationButtonsComponent,
     SocialLinksBarComponent,
     HomeBlockComponent,
-    WorkplaceCollapsibleComponent,
-    WorkplaceCollapsibleContentComponent,
     ExperienceBlockComponent,
     ContactFormComponent,
     ContactsBlockComponent,
@@ -85,11 +81,12 @@ import { MobileBackgroundComponent } from './mobile-block/components/mobile-back
     CurvesAnimationComponent,
     NavigationBlockComponent,
     ProgressAnimationComponent,
-    WorkplaceSortPipe,
     RecaptchaV3Module,
     RecaptchaFormsModule,
     MobileBlockComponent,
-    MobileBackgroundComponent
+    MobileBackgroundComponent,
+    ExperienceCollapsibleComponent,
+    ExperienceCollapsibleContentComponent
   ],
   providers: [
     {
