@@ -37,10 +37,11 @@ export class ExperienceBlockComponent extends Unsubscribable() implements OnInit
   private sortExperiences(experiences: Experience[]): Experience[] {
     if (!experiences || experiences.length < 1) { return []; }
     const sorted = experiences.sort((a, b) => new Date(b.startDate).getTime() - new Date(a.startDate).getTime());
-    sorted.forEach(experience => 
-      experience.endDate && experience.endDate.trim() !== "" ?
-      experience.endDate = experience.endDate : 
-      experience.endDate = "Now"
+    sorted.forEach(experience => {
+      if (!experience.endDate || experience.endDate.trim() === "") {
+        experience.endDate = "Now"
+      }
+    }
     );
     return sorted;
   }
