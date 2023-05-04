@@ -19,7 +19,6 @@ import { NavigationBlockComponent } from './navigation-block/navigation-block.co
 import { ProgressAnimationComponent } from '../animations/progress-animation/progress-animation.component';
 import { TakeEveryPipe } from '../pipes/take-every.pipe';
 import { AboutTextContainerComponent } from './about-block/components/about-text-container/about-text-container.component';
-import { WorkplaceSortPipe } from '../pipes/workplace-sort.pipe';
 import { MultilinePipe } from '../pipes/multiline.pipe';
 import { RecaptchaFormsModule, RecaptchaSettings, RecaptchaV3Module, RECAPTCHA_BASE_URL, RECAPTCHA_LANGUAGE, RECAPTCHA_SETTINGS, RECAPTCHA_V3_SITE_KEY } from 'ng-recaptcha';
 import { environment } from 'src/environments/environment';
@@ -49,7 +48,6 @@ import { ExperienceCollapsibleContentComponent } from './experience-block/compon
     ProgressAnimationComponent,
     TakeEveryPipe,
     AboutTextContainerComponent,
-    WorkplaceSortPipe,
     MultilinePipe,
     MobileBlockComponent,
     LoaderComponent,
@@ -83,7 +81,6 @@ import { ExperienceCollapsibleContentComponent } from './experience-block/compon
     CurvesAnimationComponent,
     NavigationBlockComponent,
     ProgressAnimationComponent,
-    WorkplaceSortPipe,
     RecaptchaV3Module,
     RecaptchaFormsModule,
     MobileBlockComponent,

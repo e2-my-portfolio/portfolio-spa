@@ -2,36 +2,36 @@
     <div *ngIf="!deviceDetector.isMobile()">
         <div class="neu text-display p-3 mb-3">
             <div class="position-title-container">
-                <div class="position-title">{{experience.position}}</div>
+                <div class="position-title">{{experience?.position}}</div>
             </div>
             <div *ngIf="experience?.projects?.length > 0 && experience?.projects[0].name !== ''">
                 <div><strong>Projects: </strong></div>
                 <ul>
                     <li *ngFor="let project of experience.projects">
-                        <div><strong>Name: </strong>{{project.name}}</div>
-                        <div><strong>Description: </strong>{{project.description}}</div>
+                        <div><strong>Name: </strong>{{project?.name}}</div>
+                        <div><strong>Description: </strong>{{project?.description}}</div>
                     </li>
                 </ul>
             </div>
-            <div><strong>Stack: </strong>{{experience.stack}}</div>
+            <div><strong>Stack: </strong>{{experience?.stack}}</div>
         </div>
     </div>
 
     <div *ngIf="deviceDetector.isMobile()">
         <div class="neu text-display p-3 mb-3">
             <div class="position-title-container-mobile">
-                <div class="position-title">{{experience.position}}</div>
+                <div class="position-title">{{experience?.position}}</div>
             </div>
             <div class="project-container-mobile">
                 <div *ngIf="experience?.projects?.length > 0 && experience?.projects[0].name !== ''">
                     <strong>Projects:</strong>
                     <div class="project-content-mobile" *ngFor="let project of experience.projects">
-                        <div><strong>Name: </strong>{{project.name}}</div>
-                        <div><strong>Description: </strong>{{project.description}}</div>
+                        <div><strong>Name: </strong>{{project?.name}}</div>
+                        <div><strong>Description: </strong>{{project?.description}}</div>
                     </div>
                 </div>
                 <div><strong>Stack:</strong>
-                    <div class="project-content-mobile">{{experience.stack}}</div>
+                    <div class="project-content-mobile">{{experience?.stack}}</div>
                 </div>
             </div>
         </div>
