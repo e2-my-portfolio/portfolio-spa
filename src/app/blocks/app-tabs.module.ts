@@ -30,6 +30,7 @@ import { SkillGroupMobileContentComponent } from './skills-block/components/skil
 import { MobileBackgroundComponent } from './mobile-block/components/mobile-background/mobile-background.component';
 import { ExperienceCollapsibleComponent } from './experience-block/components/experience-collapsible/experience-collapsible.component';
 import { ExperienceCollapsibleContentComponent } from './experience-block/components/experience-collapsible-content/experience-collapsible-content.component';
+import { UrlPipe } from '../pipes/url.pipe';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { ExperienceCollapsibleContentComponent } from './experience-block/compon
     SkillGroupMobileContentComponent,
     MobileBackgroundComponent,
     ExperienceCollapsibleComponent,
-    ExperienceCollapsibleContentComponent
+    ExperienceCollapsibleContentComponent,
+    UrlPipe
   ],
   imports: [
     CommonModule,

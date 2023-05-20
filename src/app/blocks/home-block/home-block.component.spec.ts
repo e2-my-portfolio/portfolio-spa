@@ -9,6 +9,7 @@ import { Mock } from 'src/app/testing/mock-data.test';
 import { MockModule } from 'src/app/testing/mock-module.test';
 import { HomeBlockComponent } from './home-block.component';
 import { SessionStorageService } from 'src/app/services/session-storage.service';
+import { Title } from '@angular/platform-browser';
 
 describe('HomeBlockComponent', () => {
   let component: HomeBlockComponent;
@@ -29,6 +30,7 @@ describe('HomeBlockComponent', () => {
       ],
       providers: [
         SessionStorageService,
+        Title,
         { provide: FirestoreService, useValue: MockModule.firestoreService },
         // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         { provide: FirestorageService, useValue: MockModule.firestorageService },
@@ -46,7 +48,7 @@ describe('HomeBlockComponent', () => {
                     .mockReturnValue(of(Mock.basics));
     firestorageService = TestBed.inject(FirestorageService);
     firestorageSpy = jest.spyOn(firestorageService, 'getCvFileUrl')
-                    .mockReturnValue(of('https://www.orimi.com/pdf-test.pdf'));
+                    .mockReturnValue(of('https://freetestdata.com/wp-content/uploads/2021/09/Free_Test_Data_100KB_PDF.pdf'));
   });
 
   test('should create', () => {

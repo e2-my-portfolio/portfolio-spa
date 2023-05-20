@@ -10,6 +10,7 @@ import { SessionStorageService } from 'src/app/services/session-storage.service'
 import { Basics } from 'src/app/models/data/basics.model';
 import { StorageKey } from 'src/app/constants/storage-keys';
 import { StringUtils } from 'src/app/utils/string.utils';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home-block',
@@ -29,6 +30,7 @@ export class HomeBlockComponent extends Unsubscribable() implements OnInit {
   private cvUrl: string;
 
   constructor(public deviceDetector: DeviceDetectorService,
+              private titleService: Title,
               private firestore: FirestoreService,
               private firestorage: FirestorageService,
               private sessionStorage: SessionStorageService) {
@@ -70,6 +72,7 @@ export class HomeBlockComponent extends Unsubscribable() implements OnInit {
     this.info = `I'm a ${data.position.toLowerCase()} living in ${this.resolveAddress(data)}. Currently I'm working in `;
     this.company = this.resolveCompany(data);
     this.description = data.description;
+    this.titleService.setTitle(this.name);
     this.loading = false;
   }
 

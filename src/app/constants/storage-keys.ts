@@ -3,5 +3,6 @@ export enum StorageKey {
     STORIES = 'portfolio-data-stories',
     SKILLS = 'portfolio-data-skills',
     EXPERIENCES = 'portfolio-data-experiences',
-    CV = 'porfolio-file-cv'
+    CV = 'porfolio-file-cv',
+    PICTURE = 'portfolio-file-profile-picture'
 }

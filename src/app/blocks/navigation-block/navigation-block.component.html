@@ -1,6 +1,6 @@
 <div class="glass h-100 profile-container">
     <div class="glass top-container text-center">
-        <app-profile-picture></app-profile-picture>
+        <app-profile-picture [imageUrl]="picture"></app-profile-picture>
         
         <span *ngIf="loading">
             <div class="loader name-loader skeleton-loader skeleton-loader-fill-sm"></div>
@@ -8,8 +8,8 @@
         </span>
 
         <span *ngIf="!loading">
-            <h6>{{profile?.name}}&nbsp;{{profile?.surname}}</h6>
-            <div class="info-text">{{profile?.position}}</div>
+            <h6>{{resolveFullName(data)}}</h6>
+            <div class="info-text">{{data?.position}}</div>
         </span>
     </div>
 

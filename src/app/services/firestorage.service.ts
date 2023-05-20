@@ -8,7 +8,7 @@ import { Observable, from, map, switchMap } from "rxjs";
 export class FirestorageService {
 
     private CV_PATH = '/cv';
-    private PROFILE_PIC_PATH = '/profile-pic/profile.png';
+    private PROFILE_PIC_PATH = '/profile-pic';
 
     // https://www.bezkoder.com/angular-13-firebase-storage/
     // https://dev.to/jdgamble555/angular-12-with-firebase-9-49a0
@@ -18,11 +18,12 @@ export class FirestorageService {
 
     getCvFileUrl(): Observable<string> {
         return this.getAllDownloadUrls(this.CV_PATH)
-            .pipe(switchMap((urls: string[]) => this.getFileDownloadUrl(urls[0])))
+            .pipe(switchMap((urls: string[]) => this.getFileDownloadUrl(urls.length > 0 ? urls[0] : '')));
     }
 
-    getProfilePictureUrl(): Observable<unknown> {
-        return this.getFileDownloadUrl(this.PROFILE_PIC_PATH);
+    getProfilePictureUrl(): Observable<string> {
+        return this.getAllDownloadUrls(this.PROFILE_PIC_PATH)
+            .pipe(switchMap((urls: string[]) => this.getFileDownloadUrl(urls.length > 0 ? urls[0] : '')));
     }
 
     private getFileDownloadUrl(path: string): Observable<string> {
