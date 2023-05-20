@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, zip } from 'rxjs';
-import { map, takeUntil } from 'rxjs/operators';
+import { takeUntil } from 'rxjs/operators';
 import { Collection } from 'src/app/constants/collections';
 import { StorageKey } from 'src/app/constants/storage-keys';
 import { Basics } from 'src/app/models/data/basics.model';
@@ -40,14 +40,13 @@ export class NavigationBlockComponent extends Unsubscribable() implements OnInit
       zip(basics$, pictureLink$)
       // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
         .pipe(takeUntil(this.unsubscribe))
-        .pipe(map(([basics, picture]) => {
+        .subscribe(([basics, picture]) => {
+          this.data = basics;
+          this.picture = picture;
+
           this.sessionStorage.save(StorageKey.BASICS, this.data);
           this.sessionStorage.saveString(StorageKey.PICTURE, this.picture);
-          return [basics, picture];
-        }))
-        .subscribe(([basics, picture]) => {
-          this.data = basics as Basics;
-          this.picture = picture as string;
+
           this.loading = false;
       });
     } else {
