@@ -1,5 +1,4 @@
 import { Story } from '../models/data/story.model';
-import { Profile } from '../models/data/profile.model';
 import { SocialLinks } from '../models/data/social-links.model';
 import { Basics } from '../models/data/basics.model';
 import { Skill, SkillsGroup } from '../models/data/skills.model';
@@ -8,15 +7,10 @@ import { Company } from '../models/data/company.model';
 
 export class Mock {
 
-    public static profile: Profile = {
-        name: 'John',
-        surname: 'Wick',
-        position: 'Contract Killer'
-    };
-
     public static socialLinks: SocialLinks = {
         linkedinUrl: 'https://linkedin.com',
         facebookUrl: 'https://fb.com',
+        instagramUrl: 'https://instagram.com',
         overflowUrl: 'https://stackoverflow/com',
         githubUrl: 'https://github.com'
     };

@@ -11,6 +11,7 @@ export class SessionStorageService {
     this.storage = window.sessionStorage;
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   save(key: string, object: any): void {
     if (key && key.length > 0) {
       this.storage.setItem(key, JSON.stringify(object));
@@ -23,6 +24,7 @@ export class SessionStorageService {
     }
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   get(key: string): any {
     return JSON.parse(this.storage.getItem(key));
   }

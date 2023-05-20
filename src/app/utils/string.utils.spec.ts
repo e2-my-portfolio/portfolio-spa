@@ -22,6 +22,26 @@ describe('StringUtils', () => {
         expect(StringUtils.isNotBlank('  ')).toBeFalsy();
     });
 
+    test('should be not blank when text exist', () => {
+        expect(StringUtils.isBlank('text')).toBeFalsy();
+    });
+
+    test('should be blank when text is null', () => {
+        expect(StringUtils.isBlank(null)).toBeTruthy();
+    });
+
+    test('should be blank when text is undefined', () => {
+        expect(StringUtils.isBlank(undefined)).toBeTruthy();
+    });
+
+    test('should be blank when text is empty', () => {
+        expect(StringUtils.isBlank('')).toBeTruthy();
+    });
+
+    test('should be blank when text is empty spaces', () => {
+        expect(StringUtils.isBlank('  ')).toBeTruthy();
+    });
+
     test('should capitalize only first letter of each word when text is lower case', () => {
         expect(StringUtils.capitalize('name surname')).toBe('Name Surname');
     });

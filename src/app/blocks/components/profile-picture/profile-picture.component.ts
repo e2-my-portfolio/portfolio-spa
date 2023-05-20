@@ -9,5 +9,6 @@ import { PictureSize } from 'src/app/models/attributes/picture-size.model';
 export class ProfilePictureComponent {
 
   @Input() pictureSize?: PictureSize = { width: '6rem', height: '6rem' };
+  @Input() imageUrl? = '';
 
 }

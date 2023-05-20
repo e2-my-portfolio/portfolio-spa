@@ -4,6 +4,10 @@ export class StringUtils {
         return s && s.trim().length > 0;
     }
 
+    public static isBlank(s: string): boolean {
+        return !this.isNotBlank(s);
+    } 
+
     public static capitalize(s: string): string {
         return this.isNotBlank(s) ?
             s.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase()) :

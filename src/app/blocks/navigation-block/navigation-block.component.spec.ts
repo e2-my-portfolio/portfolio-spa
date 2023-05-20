@@ -9,10 +9,14 @@ import { ProfilePictureComponent } from '../components/profile-picture/profile-p
 import { NavigationButtonsComponent } from './components/navigation-buttons/navigation-buttons.component';
 import { SocialLinksBarComponent } from './components/social-links-bar/social-links-bar.component';
 import { NavigationBlockComponent } from './navigation-block.component';
+import { FirestorageService } from 'src/app/services/firestorage.service';
+import { SessionStorageService } from 'src/app/services/session-storage.service';
 
 describe('NavigationBlockComponent', () => {
   let component: NavigationBlockComponent;
   let fixture: ComponentFixture<NavigationBlockComponent>;
+  let firestorageService: FirestorageService;
+  let firestorageSpy: jest.SpyInstance;
   let firestoreService: FirestoreService;
   let firestoreSpy: jest.SpyInstance;
 
@@ -28,7 +32,10 @@ describe('NavigationBlockComponent', () => {
         RouterTestingModule,
       ],
       providers: [
+        SessionStorageService,
         { provide: FirestoreService, useValue: MockModule.firestoreService },
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+        { provide: FirestorageService, useValue: MockModule.firestorageService },
       ]
     })
     .compileComponents();
@@ -39,6 +46,9 @@ describe('NavigationBlockComponent', () => {
     component = fixture.componentInstance;
     firestoreService = TestBed.inject(FirestoreService);
     firestoreSpy = jest.spyOn(firestoreService, 'getCollectionItem');
+    firestorageService = TestBed.inject(FirestorageService);
+    firestorageSpy = jest.spyOn(firestorageService, 'getProfilePictureUrl')
+                      .mockReturnValue(of('https://freetestdata.com/wp-content/uploads/2021/09/500kb.png'));
   });
 
   test('should create', () => {
@@ -46,11 +56,13 @@ describe('NavigationBlockComponent', () => {
   });
 
   test('should init profile data', () => {
-    firestoreSpy.mockReset().mockReturnValue(of(Mock.profile));
+    firestoreSpy.mockReset().mockReturnValue(of(Mock.basics));
     expect(component.loading).toBeTruthy();
     component.ngOnInit();
-    expect(firestoreSpy).toHaveBeenCalledWith(Collection.PROFILE);
-    expect(component.profile).toEqual(Mock.profile);
+    expect(firestoreSpy).toHaveBeenCalledWith(Collection.BASICS);
+    expect(firestorageSpy).toHaveBeenCalledTimes(1);
+    expect(component.data).toEqual(Mock.basics);
+    expect(component.picture).toEqual('https://freetestdata.com/wp-content/uploads/2021/09/500kb.png');
     expect(component.loading).toBeFalsy();
   });
 
