@@ -8,6 +8,15 @@ import { DeviceDetectorService } from 'src/app/services/device-detector.service'
 })
 export class ContactsBlockComponent {
 
+  wasEmailSent: boolean;
+
   constructor(public deviceDetector: DeviceDetectorService) { }
 
+  checkWasEmailSent(emittedValue: boolean): void {
+    this.wasEmailSent = emittedValue;
+  }
+
+  closeAlert(): void {
+    this.wasEmailSent = null;
+  }
 }

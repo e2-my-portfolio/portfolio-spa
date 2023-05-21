@@ -5,9 +5,29 @@
             Let me know what's your thoughts about me.<br>
             I am intreasting in job offers which meet's my experience or just small talk.
         </div>
+        <div *ngIf="wasEmailSent !== null && wasEmailSent" class="alert alert-success" role="alert">
+            <div class="alert-message-context">
+                <span>
+                    Message was sent.
+                </span>
+                <span (click)="closeAlert()">
+                    <i class="far fa-times-circle"></i>
+                </span>
+            </div>
+        </div>
+        <div *ngIf="wasEmailSent !== null && !wasEmailSent" class="alert alert-danger" role="alert">
+            <div class="alert-message-context">
+                <span>
+                    Message was not sent. Please try again later.
+                </span>
+                <span (click)="closeAlert()">
+                    <i class="far fa-times-circle"></i>
+                </span>
+            </div>
+        </div>
     </div>
     <div class="contact-form">
-        <app-contact-form></app-contact-form>
+        <app-contact-form (wasSent)="checkWasEmailSent($event)"></app-contact-form>
     </div>
 </div>
 

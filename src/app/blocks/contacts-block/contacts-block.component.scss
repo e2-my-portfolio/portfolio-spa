@@ -8,3 +8,10 @@
 .contact-form {
     margin: 0 1rem;
 }
+
+.alert-message-context {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+}

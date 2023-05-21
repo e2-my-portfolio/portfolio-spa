@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ReCaptchaV3Service } from 'ng-recaptcha';
 import { DeviceDetectorService } from 'src/app/services/device-detector.service';
+import { EmailService } from 'src/app/services/email.service';
+import { StringUtils } from 'src/app/utils/string.utils';
 
 @Component({
   selector: 'app-contact-form',
@@ -15,9 +17,12 @@ export class ContactFormComponent implements OnInit {
 
   contactForm: FormGroup = new FormGroup({});
 
+  @Output() wasSent: EventEmitter<boolean> = new EventEmitter<boolean>();
+
   constructor(
     public deviceDetector: DeviceDetectorService,
-    private recaptchaV3Service: ReCaptchaV3Service
+    private recaptchaV3Service: ReCaptchaV3Service,
+    private emailService: EmailService
   ) {}
 
   ngOnInit(): void {
@@ -27,26 +32,39 @@ export class ContactFormComponent implements OnInit {
   }
 
   public executeRecaptchaV3() {
-    this.recaptchaV3Service.execute('contactAction').subscribe(
-      (token) => {
-        this.resolved(token);
-      }
-    );
+    this.recaptchaV3Service.execute('contactAction').subscribe({
+      next: (token: string) => this.resolved(token),
+      error: (error) => this.onError(error)
+    });
   }
 
-  resolved(token: unknown): void {
-    console.log('token: ', token);
+  resolved(token: string): void {
+    if (StringUtils.isNotBlank(token)) {
+      this.sendMessage();
+    } else {
+      this.onError('Token is empty');
+    }
   }
 
   onError(error: unknown) {
     console.error(error);
+    this.wasSent.emit(false);
   }
 
   sendMessage(): void {
     if (this.contactForm && this.contactForm.valid) {
       // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       const values = this.contactForm.value;
-      console.log(values);
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+      this.emailService.sendEmail(values.name, values.email, values.message)
+        .then(() => {
+          this.contactForm.reset() 
+          this.wasSent.emit(true);
+        })
+        .catch((error) => {
+          console.error(error)
+          this.wasSent.emit(false);
+        });
     }
   }
 

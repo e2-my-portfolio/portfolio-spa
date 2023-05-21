@@ -12,5 +12,12 @@ export const environment = {
   },
   recaptcha: {
     siteKey: ''
+  },
+  elasticEmail: {
+    username: '',
+    password: '',
+    server: 'smtp.elasticemail.com',
+    port: '2525',
+    to: ''
   }
 };
