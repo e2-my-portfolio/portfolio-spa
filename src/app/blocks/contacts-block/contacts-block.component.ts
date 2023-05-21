@@ -8,7 +8,7 @@ import { DeviceDetectorService } from 'src/app/services/device-detector.service'
 })
 export class ContactsBlockComponent {
 
-  wasEmailSent: boolean;
+  wasEmailSent: boolean = null;
 
   constructor(public deviceDetector: DeviceDetectorService) { }
 
