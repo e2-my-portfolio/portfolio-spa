@@ -1,6 +1,7 @@
 import { AfterViewChecked, ChangeDetectionStrategy, Component, ElementRef,
           OnInit, Renderer2, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { AnalyticsService } from 'src/app/services/analytics.service';
 
 @Component({
   selector: 'app-navigation-buttons',
@@ -24,7 +25,8 @@ export class NavigationButtonsComponent implements OnInit, AfterViewChecked {
   private HIGHLIGHT_CLASS = 'active-nav-link';
 
   constructor(private router: Router,
-              private renderer: Renderer2) { }
+              private renderer: Renderer2,
+              private analytics: AnalyticsService) { }
 
   ngOnInit(): void {
     const path = this.router.routerState.snapshot.url;
@@ -45,26 +47,31 @@ export class NavigationButtonsComponent implements OnInit, AfterViewChecked {
   }
 
   toHomePage(): void {
+    this.analytics.logEvent('open_home_tab');
     void this.router.navigate(['/home']);
     this.highlightButton(this.homeButton);
   }
 
   toAboutPage(): void {
+    this.analytics.logEvent('open_about_tab');
     void this.router.navigate(['/about']);
     this.highlightButton(this.aboutButton);
   }
 
   toSkillsPage(): void {
+    this.analytics.logEvent('open_skills_tab');
     void this.router.navigate(['/skills']);
     this.highlightButton(this.skillsButton);
   }
 
   toExperiencePage(): void {
+    this.analytics.logEvent('open_experience_tab');
     void this.router.navigate(['/experience']);
     this.highlightButton(this.experienceButton);
   }
 
   toContactsPage(): void {
+    this.analytics.logEvent('open_contacts_tab');
     void this.router.navigate(['/contacts']);
     this.highlightButton(this.contactsButton);
   }

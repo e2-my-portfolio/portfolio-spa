@@ -12,15 +12,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
-import { getStorage, provideStorage } 
-from '@angular/fire/storage';
-import {
-  getAnalytics,
-  provideAnalytics,
-  /*ScreenTrackingService,
-  UserTrackingService*/
-} from '@angular/fire/analytics';
-
+import { getStorage, provideStorage } from '@angular/fire/storage';
+import { getAnalytics, provideAnalytics } from '@angular/fire/analytics';
 
 @NgModule({
   declarations: [
@@ -47,9 +40,6 @@ import {
       provide: BUCKET,
       useValue: `${environment.firebase.storageBucket}`
     },
- // analytics
-    /*ScreenTrackingService,
-    UserTrackingService*/
   ],
   bootstrap: [AppComponent]
 })

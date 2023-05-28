@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { MockModule } from 'src/app/testing/mock-module.test';
 import { NavigationButtonsComponent } from './navigation-buttons.component';
+import { AnalyticsService } from 'src/app/services/analytics.service';
 
 interface TestCase {
   name: string;
@@ -63,7 +64,8 @@ describe('NavigationButtonsComponent', () => {
         RouterTestingModule.withRoutes(MockModule.routes),
       ],
       providers: [
-        Renderer2
+        Renderer2,
+        { provide: AnalyticsService, useValue: MockModule.analytics }
       ]
     })
     .compileComponents();
