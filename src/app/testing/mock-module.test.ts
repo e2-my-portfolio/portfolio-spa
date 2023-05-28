@@ -89,6 +89,11 @@ class ReCaptchaV3Service {
     }
 }
 
+@Injectable({providedIn: 'root'})
+class AnalyticsService {
+    logEvent(eventName: string): void { }
+}
+
 
 @NgModule({
     declarations: [
@@ -132,6 +137,7 @@ export class MockModule {
     static firestorageService: FirestorageService = new FirestorageService({} as Storage);
     static deviceDetector: DeviceDetectorService = new DeviceDetectorService();
     static recaptcha: ReCaptchaV3Service = new ReCaptchaV3Service();
+    static analytics: AnalyticsService = new AnalyticsService();
 
     static routes = [
         { path: 'home', component: HomeBlockComponent },

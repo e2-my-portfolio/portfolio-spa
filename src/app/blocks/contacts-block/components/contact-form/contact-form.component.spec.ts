@@ -4,6 +4,7 @@ import { ReCaptchaV3Service } from 'ng-recaptcha';
 import { DeviceDetectorService } from 'src/app/services/device-detector.service';
 import { MockModule } from 'src/app/testing/mock-module.test';
 import { ContactFormComponent } from './contact-form.component';
+import { AnalyticsService } from 'src/app/services/analytics.service';
 
 describe('ContactFormComponent', () => {
   let component: ContactFormComponent;
@@ -22,7 +23,8 @@ describe('ContactFormComponent', () => {
       providers: [
         FormBuilder,
         { provide: ReCaptchaV3Service, useValue: MockModule.recaptcha },
-        { provide: DeviceDetectorService, useValue: MockModule.deviceDetector }
+        { provide: DeviceDetectorService, useValue: MockModule.deviceDetector },
+        { provide: AnalyticsService, useValue: MockModule.analytics }
       ]
     })
     .compileComponents();

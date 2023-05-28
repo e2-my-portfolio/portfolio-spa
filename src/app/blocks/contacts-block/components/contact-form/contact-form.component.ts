@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ReCaptchaV3Service } from 'ng-recaptcha';
+import { AnalyticsService } from 'src/app/services/analytics.service';
 import { DeviceDetectorService } from 'src/app/services/device-detector.service';
 import { EmailService } from 'src/app/services/email.service';
 import { StringUtils } from 'src/app/utils/string.utils';
@@ -22,7 +23,8 @@ export class ContactFormComponent implements OnInit {
   constructor(
     public deviceDetector: DeviceDetectorService,
     private recaptchaV3Service: ReCaptchaV3Service,
-    private emailService: EmailService
+    private emailService: EmailService,
+    private analytics: AnalyticsService
   ) {}
 
   ngOnInit(): void {
@@ -58,10 +60,12 @@ export class ContactFormComponent implements OnInit {
       // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
       this.emailService.sendEmail(values.name, values.email, values.message)
         .then(() => {
+          this.analytics.logEvent('message_sent');
           this.contactForm.reset() 
           this.wasSent.emit(true);
         })
         .catch((error) => {
+          this.analytics.logEvent('message_error');
           console.error(error)
           this.wasSent.emit(false);
         });

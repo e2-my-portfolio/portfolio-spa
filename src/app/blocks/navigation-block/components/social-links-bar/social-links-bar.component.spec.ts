@@ -1,5 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { SocialLinksBarComponent } from './social-links-bar.component';
+import { MockModule } from 'src/app/testing/mock-module.test';
+import { AnalyticsService } from 'src/app/services/analytics.service';
 
 describe('SocialLinksBarComponent', () => {
   let component: SocialLinksBarComponent;
@@ -9,6 +11,9 @@ describe('SocialLinksBarComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [
         SocialLinksBarComponent
+      ],
+      providers: [
+        { provide: AnalyticsService, useValue: MockModule.analytics }
       ]
     })
     .compileComponents();

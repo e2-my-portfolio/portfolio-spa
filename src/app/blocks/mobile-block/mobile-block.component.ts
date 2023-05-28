@@ -5,6 +5,7 @@ import { StorageKey } from 'src/app/constants/storage-keys';
 import { PictureSize } from 'src/app/models/attributes/picture-size.model';
 import { SocialLinks } from 'src/app/models/data/social-links.model';
 import { Unsubscribable } from 'src/app/operators/unsubscribtion.operator';
+import { AnalyticsService } from 'src/app/services/analytics.service';
 import { FirestorageService } from 'src/app/services/firestorage.service';
 import { FirestoreService } from 'src/app/services/firestore.service';
 import { SessionStorageService } from 'src/app/services/session-storage.service';
@@ -27,12 +28,14 @@ export class MobileBlockComponent extends Unsubscribable() implements OnInit {
 
   constructor(private firestore: FirestoreService,
               private firestorage: FirestorageService,
-              private sessionStorage: SessionStorageService) {
+              private sessionStorage: SessionStorageService,
+              private analytics: AnalyticsService) {
     super();
     this.picture = this.sessionStorage.getString(StorageKey.PICTURE);
   }
 
   ngOnInit(): void {
+    this.analytics.logEvent('mobile_view');
     this.socialLinks$ = this.firestore.getCollectionItem<SocialLinks>(Collection.SOCIAL);
     if (StringUtils.isBlank(this.picture)) {
       this.firestorage.getProfilePictureUrl()

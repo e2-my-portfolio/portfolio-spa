@@ -11,6 +11,7 @@ import { SocialLinksBarComponent } from './components/social-links-bar/social-li
 import { NavigationBlockComponent } from './navigation-block.component';
 import { FirestorageService } from 'src/app/services/firestorage.service';
 import { SessionStorageService } from 'src/app/services/session-storage.service';
+import { AnalyticsService } from 'src/app/services/analytics.service';
 
 describe('NavigationBlockComponent', () => {
   let component: NavigationBlockComponent;
@@ -36,6 +37,7 @@ describe('NavigationBlockComponent', () => {
         { provide: FirestoreService, useValue: MockModule.firestoreService },
         // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         { provide: FirestorageService, useValue: MockModule.firestorageService },
+        { provide: AnalyticsService, useValue: MockModule.analytics }
       ]
     })
     .compileComponents();

@@ -1,20 +1,20 @@
 <div class="d-inline-flex align-items-center justify-content-center w-100">
-    <a [href]="data?.linkedinUrl" target="_blank">
+    <a [href]="data?.linkedinUrl" target="_blank" (click)="logClick('go_to_linkedin')">
         <div class="icon-wrapper glass p-2 pb-1 zoom-on-hover-2">
             <i class="fab fa-linkedin fa-2x bounce-in"></i>
         </div>
     </a>
-    <a [href]="data?.instagramUrl" target="_blank">
+    <a [href]="data?.instagramUrl" target="_blank" (click)="logClick('go_to_instagram')">
         <div class="icon-wrapper glass p-2 pb-1 zoom-on-hover-2">
             <i class="fab fa-instagram-square fa-2x bounce-in"></i>
         </div>
     </a>
-    <a [href]="data?.githubUrl" target="_blank">
+    <a [href]="data?.githubUrl" target="_blank" (click)="logClick('go_to_github')">
         <div class="icon-wrapper glass p-2 pb-1 zoom-on-hover-2">
             <i class="fab fa-github-square fa-2x bounce-in"></i>
         </div>
     </a>
-    <a [href]="data?.overflowUrl" target="_blank">
+    <a [href]="data?.overflowUrl" target="_blank" (click)="logClick('go_to_stackoverflow')">
         <div class="icon-wrapper glass p-2 zoom-on-hover-2">
             <i class="fab fa-stack-overflow fa-2x mx-1 bounce-in"></i>
         </div>

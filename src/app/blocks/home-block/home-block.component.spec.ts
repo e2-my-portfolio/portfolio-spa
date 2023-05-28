@@ -10,6 +10,7 @@ import { MockModule } from 'src/app/testing/mock-module.test';
 import { HomeBlockComponent } from './home-block.component';
 import { SessionStorageService } from 'src/app/services/session-storage.service';
 import { Title } from '@angular/platform-browser';
+import { AnalyticsService } from 'src/app/services/analytics.service';
 
 describe('HomeBlockComponent', () => {
   let component: HomeBlockComponent;
@@ -34,7 +35,8 @@ describe('HomeBlockComponent', () => {
         { provide: FirestoreService, useValue: MockModule.firestoreService },
         // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         { provide: FirestorageService, useValue: MockModule.firestorageService },
-        { provide: DeviceDetectorService, useValue: MockModule.deviceDetector }
+        { provide: DeviceDetectorService, useValue: MockModule.deviceDetector },
+        { provide: AnalyticsService, useValue: MockModule.analytics }
       ]
     })
     .compileComponents();

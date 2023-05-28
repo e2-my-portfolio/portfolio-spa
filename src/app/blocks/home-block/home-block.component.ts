@@ -11,6 +11,7 @@ import { Basics } from 'src/app/models/data/basics.model';
 import { StorageKey } from 'src/app/constants/storage-keys';
 import { StringUtils } from 'src/app/utils/string.utils';
 import { Title } from '@angular/platform-browser';
+import { AnalyticsService } from 'src/app/services/analytics.service';
 
 @Component({
   selector: 'app-home-block',
@@ -33,7 +34,8 @@ export class HomeBlockComponent extends Unsubscribable() implements OnInit {
               private titleService: Title,
               private firestore: FirestoreService,
               private firestorage: FirestorageService,
-              private sessionStorage: SessionStorageService) {
+              private sessionStorage: SessionStorageService,
+              private analytics: AnalyticsService) {
     super();
     this.data = this.sessionStorage.get(StorageKey.BASICS) as Basics;
     this.cvUrl = this.sessionStorage.getString(StorageKey.CV);
@@ -96,6 +98,7 @@ export class HomeBlockComponent extends Unsubscribable() implements OnInit {
   }
 
   private downloadCvFrom(url: string) {
+    this.analytics.logEvent('download_cv');
     const downloadLink = document.createElement('a');
     downloadLink.download = `cv.pdf`;
     downloadLink.href = url;

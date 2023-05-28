@@ -13,6 +13,7 @@ import { SkillsBlockComponent } from '../skills-block/skills-block.component';
 
 import { MobileBlockComponent } from './mobile-block.component';
 import { MobileBackgroundComponent } from './components/mobile-background/mobile-background.component';
+import { AnalyticsService } from 'src/app/services/analytics.service';
 
 describe('MobileBlockComponent', () => {
   let component: MobileBlockComponent;
@@ -37,7 +38,8 @@ describe('MobileBlockComponent', () => {
       providers: [
         { provide: FirestoreService, useValue: MockModule.firestoreService },
         // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-        { provide: FirestorageService, useValue: MockModule.firestorageService }
+        { provide: FirestorageService, useValue: MockModule.firestorageService },
+        { provide: AnalyticsService, useValue: MockModule.analytics }
       ]
     })
     .compileComponents();
