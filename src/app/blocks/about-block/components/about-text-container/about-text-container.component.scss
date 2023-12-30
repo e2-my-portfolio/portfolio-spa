@@ -1,3 +1,36 @@
 .group-title {
     margin: 1rem 1.4rem;
 }
+
+.expandable {
+    max-height: calc(20*1rem);
+    overflow: hidden;
+    transition:         height 500ms ease;
+    -moz-transition:    height 500ms ease;
+    -ms-transition:     height 500ms ease;
+    -o-transition:      height 500ms ease;
+    -webkit-transition: height 500ms ease;
+}
+
+.expandable-toggle {
+    font-size: small;
+    font-weight: bold;
+    text-align: end;
+    color: #b0b0b0;
+    margin: 0 1rem .5rem 0;
+    cursor: pointer;
+}
+
+.expandable.expanded {
+    max-height: fit-content;
+    height: auto;
+    overflow: auto;
+}
+
+.expandable.not-expanded {
+    mask-image: linear-gradient(0deg, transparent 1rem, red 66px);;
+    -moz-mask-image: linear-gradient(0deg, transparent 1rem, red 66px);
+    -ms-mask-image: linear-gradient(0deg, transparent 1rem, red 66px);
+    -o-mask-image: linear-gradient(0deg, transparent 1rem, red 66px);
+    -webkit-mask-image: linear-gradient(0deg, transparent 1rem, red 66px);
+}
