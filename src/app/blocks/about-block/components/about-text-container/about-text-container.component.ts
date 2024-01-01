@@ -11,7 +11,17 @@ import { Story } from 'src/app/models/data/story.model';
 })
 export class AboutTextContainerComponent {
 
+  MORE = 'more...';
+  LESS = 'less...';
+
   @Input() animationDelay = 0;
   @Input() data?: Story;
+  expanded = false;
+  toggleText = this.MORE;
+
+  toggleExpandable() {
+    this.expanded = !this.expanded;
+    this.toggleText = this.expanded ? this.LESS : this.MORE;
+  }
 
 }
