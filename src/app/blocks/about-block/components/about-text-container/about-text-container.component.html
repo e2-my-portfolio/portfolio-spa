@@ -1,7 +1,7 @@
 <div [@fade]="{ value:'', params: { animationDelay:animationDelay } }" class="glass m-3">
     <div class="expandable" [ngClass]="expanded ? 'expanded' : 'not-expanded'">
-        <h5 class="group-title">{{data1.title}}</h5>
-        <div class="px-4 pb-4" [innerHTML]="data1.content | multiline | secure:'html'"></div>
+        <h5 class="group-title">{{data.title}}</h5>
+        <div class="px-4 pb-4" [innerHTML]="data.content | multiline | secure:'html'"></div>
     </div>
     <div class="expandable-toggle" (click)="toggleExpandable()">{{toggleText}}</div>
 </div>
